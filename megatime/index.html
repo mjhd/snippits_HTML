@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>MegaTime</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:300,400,600,900&amp;lang=en" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+<header>
+  <h1>MegaTime</h1>
+  <a id="skip_content" href="#time_data_formatted">skip to main content</a>
+</header>
+
+<main>
+  <h2></h2>
+  <h3>Raw Outputs:</h3>
+  <ul id="time_data"></ul>
+  <div id="panel">
+    <table id="time_data_formatted">
+      <tr>
+        <th>UTC</th>
+        <th>Local Time</th>
+        <th>Mumbai</th>
+        <th>Honolulu</th>
+      </tr>
+      <tr>
+        <td>
+          <table></table>
+        </td>
+        <td>
+          <table></table>
+        </td>
+        <td>
+          <table></table>
+        </td>
+        <td>
+          <table></table>
+        </td>
+      </tr>
+    </table>
+    <button id="change_date">Change datestring</button>
+    <label for="select" class="select">Select:</label>
+    <select name="select" id="select" class="select">
+      <optgroup label="Datestring:">
+        <option value="1975-11-07 04:20:09.420 GMT+00:00">1975-11-07 04:20:09.420</option>
+        <option value="1999-02-03 04:50:02.123 GMT+00:00">1999-02-03 04:50:02.123</option>
+        <option value="{NOW}" selected>Now</option>
+      </optgroup>
+    </select>
+  </div>
+</main>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

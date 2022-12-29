@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <a href="megaform">MegaForm</a>
+  <a href="megatime">MegaTime</a>
+  <a href="megatable">MegaTable</a>
+  <!--<script src="script.js"></script>-->
+  <picture>
+    <!-- SVG is first - ideally this works and the other sources are passed over -->
+    <source srcset="https://assets.codepen.io/3/kiwi.svg" type="image/svg+xml">
+  
+    <!-- Small size backup raster images -->
+    <!-- WebP preferred backup, png backup backup then final last ditch backup jpg srcs -->
+    <source srcset="https://thedesignlabproject.com/kiwi/kiwi_sm.webp" type="image/webp" media="(max-width: 760px)">
+    <source srcset="https://thedesignlabproject.com/kiwi/kiwi_sm.png" type="image/png" media="(max-width: 760px)">
+    <source srcset="https://thedesignlabproject.com/kiwi/kiwi_sm.jpg" type="image/jpg" media="(max-width: 760px)">
+  
+    <!-- Medium size backup raster images -->
+    <source srcset="https://thedesignlabproject.com/kiwi/kiwi_md.webp" type="image/webp" media="(max-width: 1200px)">
+    <source srcset="https://thedesignlabproject.com/kiwi/kiwi_md.png" type="image/png" media="(max-width: 1200px)">
+    <source srcset="https://thedesignlabproject.com/kiwi/kiwi_md.jpg" type="image/jpg" media="(max-width: 1200px)">
+  
+    <!-- Full size (default) backup raster images -->
+    <source srcset="https://thedesignlabproject.com/kiwi/kiwi.webp" type="image/webp">
+    <source srcset="https://thedesignlabproject.com/kiwi/kiwi.png" type="image/png">
+  
+    <!-- img tag itself including full size default final backup and default jpg src -->
+    <img src="https://thedesignlabproject.com/kiwi/kiwi.jpg" alt="kiwi" loading="lazy" decoding="async"> 
+  </picture>
+</body>
+
+</html>

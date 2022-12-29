@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>MegaForm</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:300,400,600,900&amp;lang=en" />
+  <link href="style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+<header>
+  <h1>MegaForm</h1>
+  <a id="skip_content" href="#mega_form">skip to main content</a>
+</header>
+
+<main>
+  <form action="#" method="post" id="mega_form" aria-label="MegaForm">
+    <h2>Form fields:</h2>
+    <fieldset id="basic_inputs" aria-labelledby="basic_heading">
+      <legend id="basic_heading"><h3>Basic inputs:</h3></legend>
+      <ul>
+        <li><label for="text_input" class="text_input">Text input:</label><input type="text" name="text_input" id="text_input" class="text_input" aria-describedby="basic_heading"></li>
+        <li><label for="number_input" class="number_input">Number input:</label><input type="number" name="number_input" id="number_input" class="number_input" inputmode="numeric" min="0" max="255" value="0" step="3" aria-describedby="basic_heading"></li>
+        <li><label for="email_input" class="email_input">Email input <small>(Gmail only)</small>:</label><input type="email" name="email_input" id="email_input" class="email_input" inputmode="email" size="22" minlength="3" maxlength="64" pattern="^.*@gmail.com$" aria-describedby="basic_heading"></li>
+        <li><label for="tel_input" class="tel_input">Tel input:</label><input type="tel" name="tel_input" id="tel_input" class="tel_input" inputmode="tel" aria-describedby="basic_heading"></li>
+        <li><label for="textarea" class="textarea">Textarea:</label><textarea name="textarea" id="textarea" cols="30" rows="10" class="textarea" aria-describedby="basic_heading"></textarea></li>
+        <li><label for="button" class="button">Button:</label><button type="button" name="button" role="button" id="button" class="button" aria-describedby="basic_heading">Random Button</button></li>
+        <li><label for="hidden" class="hidden">Hidden input:</label><input type="hidden" name="hidden" id="hidden" class="hidden" value="0" aria-describedby="basic_heading"></li>
+      </ul>
+      <picture>
+        <!-- SVG is first - ideally this works and the other sources are passed over -->
+        <source srcset="https://assets.codepen.io/3/kiwi.svg" type="image/svg+xml">
+      
+        <!-- Small size backup raster images -->
+        <!-- WebP preferred backup, png backup backup then final last ditch backup jpg srcs -->
+        <source srcset="https://thedesignlabproject.com/kiwi/kiwi_sm.webp" type="image/webp" media="(max-width: 760px)">
+        <source srcset="https://thedesignlabproject.com/kiwi/kiwi_sm.png" type="image/png" media="(max-width: 760px)">
+        <source srcset="https://thedesignlabproject.com/kiwi/kiwi_sm.jpg" type="image/jpg" media="(max-width: 760px)">
+      
+        <!-- Medium size backup raster images -->
+        <source srcset="https://thedesignlabproject.com/kiwi/kiwi_md.webp" type="image/webp" media="(max-width: 1200px)">
+        <source srcset="https://thedesignlabproject.com/kiwi/kiwi_md.png" type="image/png" media="(max-width: 1200px)">
+        <source srcset="https://thedesignlabproject.com/kiwi/kiwi_md.jpg" type="image/jpg" media="(max-width: 1200px)">
+      
+        <!-- Full size (default) backup raster images -->
+        <source srcset="https://thedesignlabproject.com/kiwi/kiwi.webp" type="image/webp">
+        <source srcset="https://thedesignlabproject.com/kiwi/kiwi.png" type="image/png">
+      
+        <!-- img tag itself including full size default final backup and default jpg src -->
+        <img src="https://thedesignlabproject.com/kiwi/kiwi.jpg" alt="A kiwi" loading="lazy" decoding="async"> 
+      </picture>
+    </fieldset>
+    <fieldset id="extended_inputs">
+      <legend><h3>Extended inputs:</h3></legend>
+      <ul>
+        <li>
+          <fieldset><input type="radio" name="radio" id="radio_01" class="radio" value="radio_01">
+          <label for="radio_01" class="radio">Radio 01:</label></fieldset>
+          <fieldset><input type="radio" name="radio" id="radio_02" class="radio" value="radio_02">
+          <label for="radio_02" class="radio">Radio 02:</label></fieldset>
+          <fieldset><input type="radio" name="radio" id="radio_03" class="radio" value="radio_03" checked>
+          <label for="radio_03" class="radio">Radio 03:</label></fieldset>
+        </li>
+        <li>
+          <fieldset><input type="checkbox" name="checkbox" id="checkbox_01" class="checkbox" value="checkbox_01">
+          <label for="checkbox_01" class="checkbox">Checkbox 01:</label></fieldset>
+          <fieldset><input type="checkbox" name="checkbox" id="checkbox_02" class="checkbox" value="checkbox_02">
+          <label for="checkbox_02" class="checkbox">Checkbox 02:</label></fieldset>
+          <br />
+          <fieldset><input type="checkbox" name="checkbox" id="checkbox_03" class="checkbox" value="checkbox_03">
+          <label for="checkbox_03" class="checkbox">Checkbox 03:</label></fieldset>
+          <fieldset><input type="checkbox" name="checkbox" id="checkbox_04" class="checkbox" value="checkbox_04">
+          <label for="checkbox_04" class="checkbox">Checkbox 04:</label></fieldset>
+        </li>
+        <li>
+          <label for="list_input" class="list_input">List input:</label>
+          <input list="list_values" name="list_input" id="list_input" class="list_input" placeholder="Pick an RGB color">
+          <datalist id="list_values">
+            <option value="Red">
+            <option value="Green">
+            <option value="Blue">
+          </datalist>
+        </li>
+        <li>
+          <label for="select" class="select">Select:</label>
+          <select name="select" id="select" class="select">
+            <optgroup label="NA:">
+              <option value="us">USA</option>
+              <option value="ca">Canada</option>
+              <option value="mx" selected>Mexico</option>
+            </optgroup>
+            <optgroup label="SA:">
+              <option value="br">Brazil</option>
+              <option value="ar">Argentina</option>
+              <option value="cl">Chile</option>
+            </optgroup>
+            <optgroup label="AS:">
+              <option value="jp">Japan</option>
+              <option value="ch">China</option>
+              <option value="in">India</option>
+            </optgroup>
+            <optgroup label="AF:">
+              <option value="eg">Egypt</option>
+              <option value="dk">Democratic Republic of Congo</option>
+              <option value="sa">South Africa</option>
+            </optgroup>
+            <optgroup label="EU:">
+              <option value="tk">Turkey</option>
+              <option value="fr">France</option>
+              <option value="sw">Sweden</option>
+            </optgroup>
+          </select>
+        </li>
+        <li><label for="date" class="date">Date input:</label><input type="date" name="date" id="date" class="date" min="1970-01-01" max="2030-01-01" value="1986-11-07" step="2"></li>
+        <li><label for="time" class="time">Time input:</label><input type="time" name="time" id="time" class="time" min="07:00" max="18:30" value="16:20" step="30"></li>
+      </ul>
+    </fieldset>
+    <fieldset id="advanced_inputs">
+      <legend><h3>Advanced inputs:</h3></legend>
+      <ul>
+        <li><label for="color" class="color">Color input:</label><input type="color" name="color" id="color" class="color" value="#a500e0"></li>
+        <li><label for="range" class="range">Range input:</label><input type="range" name="range" id="range" class="range" min="10" max="255" step="5"></li>
+        <li>
+          <label for="range_data" class="range_data">Range input w/ datalist:</label>
+          <input type="range" name="range_data" id="range_data" class="range_data" list="range_values" step="25">
+          <datalist id="range_values">
+            <option value="0" label="Terrible">
+            <option value="25" label="Bad">
+            <option value="50" label="Ok">
+            <option value="75" label="Good">
+            <option value="100" label="Fantastic">
+          </datalist>
+        </li>
+        <li><label for="file" class="file">File input:</label><input type="file" name="file" id="file" class="file" accept="image/png, image/jpeg" multiple><ul id="file_data" aria-label="File upload" aria-hidden="true"></ul></li>
+        <li><label for="password" class="password" title="Uppercase, lowercase, numeric and special characters required">Password input:</label><input type="password" name="password" id="password" class="password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).*$" title="8 uppercase, lowercase, numeric and special characters required"></li>
+        <li><label for="search" class="search" title="Use Alt+s or Alt+Shift+s tfo jump to search">Search input:</label><input type="search" name="search" id="search" class="search" inputmode="search" title="Use Alt+s or Alt+Shift+s to jump to search"></li>
+        <li><label for="url" class="url">Url input:</label><input type="url" name="url" id="url" class="url" inputmode="url" spellcheck="false" autocorrect="off"></li>
+        <li><label for="week" class="week">Week input:</label><input type="week" name="week" id="week" class="week" min="2021-W12" max="2022-W52"></li>
+        <li><label for="month" class="month">Month input:</label><input type="month" name="month" id="month" class="month" min="2022-01" max="2022-12" value="2022-06"></li>
+        <li><label for="datetime-local" class="datetime-local">Datetime-Local input:</label><input type="datetime-local" name="datetime-local" id="datetime-local" class="datetime-local" value="2000-01-01T00:01"></li>
+
+        <li><label for="progress" id="progress_label" class="progress" title="Once the form finishes loading it will be avialable and you will begin using your fuel to keep it active">Progress: <progress role="progressbar" id="progress" class="progress" aria-labelledby="progress_label" min="0" max="100" value="0">Progress</progress><output name="progress" for="progress" aria-labelledby="progress_label">0%</output></label></li>
+
+        <li><label for="meter" id="meter_label" class="meter" title="The amount of fuel remaining, once your fuel level hits 0 the form will become locked and unavailable">Fuel level: <meter role="meter" aria-labelledby="meter_label" id="meter" class="meter" min="0" max="90000" optimum="90000" high="60000" low="30000" value="90000">Fuel level</meter><output name="meter" for="meter" aria-labelledby="meter_label">90000/90000<br><strong>100%</strong></output></label></li>
+      </ul>
+    </fieldset>
+    <fieldset id="submit_inputs">
+      <legend><h3>Process values:</h3></legend>
+      <ul>
+        <li>
+          <!--<input type="image" id="image" class="image" alt="submit" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHlsZT0id2lkdGg6IDgwcHg7Ij4gPGRlZnM+PC9kZWZzPiA8ZWxsaXBzZSBzdHlsZT0ic3Ryb2tlOiByZ2IoMCwgMCwgMCk7IGZpbGw6IHJnYigwLCAyMDAsIDI1NSk7IiBjeD0iMjUwIiBjeT0iMjUwIiByeD0iMjM5Ljg2OSIgcnk9IjI1MCI+PC9lbGxpcHNlPiA8dGV4dCBzdHlsZT0iZmlsbDogcmdiKDYyLCA2MiwgNjIpOyBmb250LWZhbWlseTogQXJpYWwsIHNhbnMtc2VyaWY7IGZvbnQtc2l6ZTogMTUwcHg7IGZvbnQtd2VpZ2h0OiA3MDA7IHdoaXRlLXNwYWNlOiBwcmU7IiB4PSIxMzUiIHk9IjMxMiI+T0s8L3RleHQ+PC9zdmc+">-->
+          <input type="image" id="image" class="image" alt="submit" src='data:image/svg+xml;utf8,<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width: 80px;"> <defs></defs> <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(0, 200, 255);" cx="250" cy="250" rx="239.869" ry="250"></ellipse> <text style="fill: rgb(62, 62, 62); font-family: Arial, sans-serif; font-size: 150px; font-weight: 700; white-space: pre;" x="135" y="312">OK</text></svg>'>
+          <input type="submit" id="submit" class="submit" value="Run">
+          <input type="reset" id="reset" class="reset" value="Reset">
+        </li>
+      </ul>
+    </fieldset>
+  </form>
+</main>
+<script type="text/javascript" src="app.js"></script>
+  <!--
+  <script type="text/javascript">
+    let form_elements = Array.from(document.querySelectorAll("input, textarea, button, select, datalist, option, optgroup, label, output, progress, meter"))
+    for (let entry of form_elements){
+        console.log("tag:" + entry.tagName + "; type:" + entry.type + "; name:" + entry.getAttribute("name") + "; id:" + entry.id + "; class:" + entry.classList[0] + "; for:" + entry.getAttribute("for"))
+    }
+  </script>
+  -->
+</body>
+</html>

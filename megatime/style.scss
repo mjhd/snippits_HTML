@@ -1,0 +1,25 @@
+main {
+    position: relative;
+}
+#panel {
+    position: absolute;
+    bottom: 56px;
+    left: 475px;
+    #time_data_formatted {
+        table {
+          border-collapse: collapse;
+          outline: solid 1px #444;
+          tr {
+              &:nth-child(3) {
+                border-bottom: solid 1px #444;
+              }
+              td {
+                  padding: 2px;
+              }
+          }
+            td:nth-child(1){
+                text-align: right;
+            }
+        }
+    }
+}

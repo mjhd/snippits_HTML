@@ -1,0 +1,4 @@
+[submodule "min.htmlpage.clone"]
+	path = min.htmlpage.clone
+	url = https://github.com/mjhd/min.htmlpage.clone.git
+	branch = master

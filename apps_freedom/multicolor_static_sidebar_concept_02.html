@@ -1,0 +1,373 @@
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AppsFreedom</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="http://www.thedesignlabproject.com/appsfreedom_assets/jquery.mobile.custom.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f9f9f9; }
+    * { font-family: 'Droid Serif', serif; color: #444; }
+    li { list-style: none; }
+    hr { padding: 0; margin: 0; }
+    
+    #main { position: fixed; width: 100%; height: 100%; background: url(http://www.mjhd.me/client_tests/appsfreedom/AppFreedom%20UI/img/Mix%20Total_06-01.jpg); background-size: 150%; }
+    
+    #main > header { position: fixed; width: 100%; top: 0; background-color: rgba(0, 152, 255, 0.66); }
+    
+    #title-bar { display: none; overflow: hidden; padding: 10px; background: #F1E20F; border-bottom: solid 3px #bfbfbf; height: 0px; }
+    #title-bar > img { height: 23px; }
+    #title-bar h1 { float: right; margin: 0; color: #444; font-size: 22px; line-height: 26px; }
+    
+    nav { }
+    
+    #menu-bar {  }
+    #menu-bar input { margin: 19px 0 0 25px; border-radius: 15px; padding: 12px 50px 13px 7px; outline: none; color: #fff; font-weight: bold; border: solid 3px #fff; font-size: 12px; line-height: 12px; background-color: rgba(255, 255, 255, 0.2); }
+    #menu { float: right; margin: 5px 25px; border-radius: 10px; }
+    #menu a { display: block; overflow: hidden; position: relative; width: 70px; height: 70px; border-radius: 100%; border: solid 3px #fff; background-color: rgba(255, 255, 255, 0.2); }
+    #menu img { position: absolute; top: 18px; right: 12px; }
+    
+    
+    #content > div { max-width: 980px; margin: auto; overflow: hidden; }
+    #tile-container { padding: 0; margin: 0; overflow: hidden; }
+    .tile { float: left; width: 23%; margin: 1%; box-sizing: border-box; border-radius: 100%; overflow: hidden; background-image: url(http://www.transparenttextures.com/patterns/cartographer.png); background-size: 170px; }
+    .tile > * > * { padding: 5%; }
+    .tile a { text-decoration: none; color: #333; text-align: center; display: block; height: 100%; width: 100%; }
+    .tile a header { padding: 18px 0; background: #35de11; color: #fff; font-weight: bold; }
+    
+    
+    
+    
+    #menu-container li { margin: 20px; font-size: 18px; font-weight: bold; color: #444; }
+    #menu-container > ul > li header { display: inline; color: #444; font-size: 26px; font-weight: bold; float: left; padding-right: 15px; }
+    #menu-container > img { display: block; float: right; margin-right: 5%;   max-width: 335px; }
+    #menu-container > ul { padding: 0 10%; text-align: right; margin: 0; position: absolute; width: 80%; }
+    #menu-container * { color: #fff; }
+    
+    #menu-items { background: transparent; width: 120px; float: left; }
+    #menu-items ul { padding: 0; margin: 7px; }
+    #menu-items li { display: inline-block; width: 80%; margin: 2% 4%; border: solid 2px #bfbfbf; box-sizing: border-box; border-radius: 7px; }
+    #menu-items a { display: block; padding: 12px 0 10px 0; text-align: center; background: #00ade1; border-radius: 5px; }
+    
+    
+    #primary-nav a { display: inline-block; width: 39%; border: solid 2px #fff; background: #00ade1; text-align: center; padding: 2%; margin: 2%; }
+    #primary-nav a.active { background: #35de11; }
+    
+    .tile * { color: #fff; }
+    .tile { border-radius: 0; background-image: none; color: #444!important; }
+    .tile * { color: #444!important; }
+    
+    .tile header { background: transparent!important; }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    #main > header { position: fixed; width: 28%; height: 96%; top: 2%; left: 1%; background: transparent; overflow: hidden; }
+    
+    #title-bar { display: block; position: relative; overflow: hidden; padding: 10px; background: #95a5a6; border-bottom: solid 2px #888; height: 175px; border-radius: 10px; }
+    
+    
+    
+    
+    
+    
+    
+    #content { position: fixed; height: 100%; width: 71%; left: 29%; overflow: auto; }
+    
+    .tile { float: left; width: 25%; padding: 1%; margin: 0; box-sizing: border-box; overflow: hidden; }
+    
+    #menu-container { position: absolute; width: 94%; left: 3%; top: 197px; height: 100%; background: rgba(255, 255, 255, 0.55); border-right: solid 1px#95a5a6; border-left: solid 1px#95a5a6; }
+    
+    #primary-nav { position: absolute; bottom: 1px; width: 94%; left: 3%; border-bottom: solid 1px#95a5a6; }
+    
+    #menu-bar input { margin: 12px 0; padding: 15px 10px; width: calc(90% - 92px); border-radius: 5px; float: left; }
+    
+    #menu { margin: 0;  }
+    
+    #menu a { display: block; overflow: hidden; position: relative; width: 70px; height: 70px; border-radius: 5px; border: solid 3px #fff; border: solid 2px #fff; background-color: #00ade1; }
+    
+    
+    
+    
+    
+    #menu-items { background: transparent; width: 100%; overflow: hidden; position: absolute; bottom: 5px; left: 0;}
+    
+    #menu-items ul { padding: 0; margin: 0; }
+    
+    #menu-items li { display: inline-block; width: 40%; margin: 2% 5%; border: solid 2px #fff; box-sizing: border-box; float: left; }
+    
+    #menu-items a { display: block; padding: 12px 0 10px 0; text-align: center; background: #00ade1; border-radius: 5px; }
+    
+    
+    #tile-container li:nth-child(6n+1) a { background: #00ade1; }
+    #tile-container li:nth-child(6n+2) a { background: #ffa500; }
+    #tile-container li:nth-child(6n+3) a { background: #af7ac4; }
+    #tile-container li:nth-child(6n+4) a { background: #e74c3c; }
+    #tile-container li:nth-child(6n+5) a { background: #FCF300; }
+    #tile-container li:nth-child(6n+6) a { background: #fc355e; }
+</style>
+</head>
+
+<section id="main">
+    <header>
+      <section id="title-bar">
+			
+			<section id="menu-bar">
+				<input type="text" id="search" name="search" value="&#x1f50d; Filter Items"></input>
+				<nav id="menu">
+					<a href="#"><img src="http://www.mjhd.me/client_tests/appsfreedom/AppFreedom%20UI/img/menu_icon.png" /></a>
+				</nav>
+			</section>
+			
+			<nav id="menu-items">
+				<ul>
+				  <li><a href="#"><img src="http://www.mjhd.me/client_tests/appsfreedom/AppFreedom%20UI/img/user.png" /></a></li>
+				  <li><a href="#"><img src="http://www.mjhd.me/client_tests/appsfreedom/AppFreedom%20UI/img/gear.png" /></a></li>
+				</ul>
+			</nav>
+		
+        </section>
+      <section id="menu-container">
+		<ul>
+			<li><header>Open:</header>21</li>
+			<hr />
+			<li><header>Urgent:</header>6</li>
+			<hr />
+			<li><header>Total:</header>$23,946</li>
+			<hr />
+		</ul>  
+		
+      
+    </section>
+	<nav id="primary-nav">
+				<a href="#"><img style="  margin-top: 2px;" src="http://www.thedesignlabproject.com/appsfreedom_assets/cart.png" /></a>
+				<a href="#"><img src="http://www.thedesignlabproject.com/appsfreedom_assets/po_appr.png" /></a>
+				<a href="#"><img src="http://www.thedesignlabproject.com/appsfreedom_assets/po.png" /></a>
+				<a href="#" class="active"><img style="  margin-top: 2px;" src="http://www.thedesignlabproject.com/appsfreedom_assets/gr.png" /></a>
+		  </nav>
+    </header>
+    
+    <section id="content">
+      <div>
+        <ul id="tile-container">
+            <li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li>
+            <li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li>
+            <li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li>
+            <li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li>
+                        <li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li>
+            <li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li>
+          </div>
+        </ul>
+        
+    </section>
+    
+    
+</section>
+</body>

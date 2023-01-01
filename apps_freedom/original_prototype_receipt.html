@@ -1,0 +1,390 @@
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="http://www.thedesignlabproject.com/appsfreedom_assets/jquery.mobile.custom.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
+  
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
+  <style>
+    html, body { margin: 0; padding: 0; background: #f9f9f9; }
+    * { font-family: 'Droid Serif', serif; color: #444; }
+    li { list-style: none; }
+    
+    #main > header { position: fixed; width: 100%; top: 0; }
+    
+    #title-bar { overflow: hidden; padding: 10px; background: #f9f9f9; border-bottom: solid 3px #bfbfbf; }
+    #title-bar > img { height: 23px; }
+    #title-bar h1 { float: right; margin: 0; color: #444; font-size: 22px; line-height: 26px; }
+    
+    nav { background: #00ade1; }
+    
+    #menu-bar { background: #ededed; border-bottom: solid 2px #bfbfbf; }
+    #menu-bar input { margin: 8px 25px; border-radius: 15px; padding: 12px 50px 13px 7px; outline: none; border: solid 1px #bfbfbf; font-size: 12px; line-height: 12px; }
+    #menu { float: right; border-left: solid 2px #bfbfbf; }
+    #menu a { display: block; padding: 11px 25px; overflow: hidden; }
+    #menu img { float: left; height: 35px; }
+    
+    #content { position: fixed; height: calc(100% - 168px); width: 100%; margin-top: 109px; left: 0; }
+    
+    #info { float: left; height: 100%; width: 50%; overflow: auto; }
+    #info header { margin: 20px 0 10px 0; color: #35de11; font-size: 32px; font-weight: bold }
+    
+    #info ul ul { padding: 0; margin-bottom: 35px; overflow: hidden; }
+    #info ul ul li { float: left; margin-left: 30px }
+    #info > ul > li { margin: 5px; clear: both; }
+    #info strong { color: #35de11; font-size: 22px; }
+    #info img { max-width: 100%; margin: 35px 20px; }
+    #info > ul > li:last-child { font-size: 20px; font-weight: bold; }
+    
+    #content-inner { float: right; height: 100%; width: 50%; border-left: solid 1px #bfbfbf; box-sizing: border-box; overflow: auto; }
+    
+    #tile-container { margin: -1px 0 -1px 0; padding: 0; overflow: hidden; }
+    .tile { float: left; position: relative; width: 100%; border-top: solid 1px #bfbfbf; background: #ededed; overflow: hidden; }
+    .tile:nth-child(even){ background: #f9f9f9; }
+    .tile a { display: block; padding: 2%; text-decoration: none; color: #333; text-align: center; overflow: hidden; }
+    .tile a header { position: absolute; left: 2%; height: 0; line-height: 0; top: 23%; padding: 3%; background: #35de11; color: #fff; font-weight: bold; border: solid 1px #bfbfbf; }
+    .tile h2, .tile p { text-align: right; padding-right: 5%; }
+    
+    
+    #menu-container { position: fixed; top: 109px; right: -250px; height: calc(100% - 168px); width: 250px; background: #d6d6d6; border-left: solid 2px #bfbfbf; overflow: auto; }
+    #menu-container li { margin: 12px; color: #444; font-size: 18px; font-weight: bold; }
+    #menu-container > ul > li header { display: inline; margin-right: 8px; color: #35de11;font-size: 26px; font-weight: bold; }
+    #menu-container > img { display: block; max-width: 125px; margin: 35px auto; }
+    
+    #menu-items { background: transparent; }
+    #menu-items ul { padding: 0; }
+    #menu-items li { display: inline-block; width: 41%; margin:  2% 4%; border: solid 2px #bfbfbf; box-sizing: border-box; border-radius: 7px; }
+    #menu-items a { display: block; padding: 12px 0 10px 0; text-align: center; background: #00ade1; border-radius: 5px; }
+    
+    footer { display: block; position: fixed; bottom: 0px; width: 100%; }
+    #primary-nav { display: table; height: 60px; width: 100%; border-collapse: collapse; box-sizing: border-box; }
+    #primary-nav a { display: table-cell; width: 25%; border: solid 2px #bfbfbf; text-align: center; vertical-align: middle; padding-top: 5px; }
+    #primary-nav a.active { background: #35de11; }
+  </style>
+</head>
+<body>
+    
+    
+<section id="main">
+    <header>
+        <section id="title-bar">
+            <img src="http://www.thedesignlabproject.com/appsfreedom_assets/logo_flat.png" />
+            <h1>Goods Receipt</h1>
+        </section>
+        <section id="menu-bar">
+            <input type="text" id="search" name="search" value="Filter Items"></input>
+            <nav id="menu">
+                <a href="#"><img src="http://www.thedesignlabproject.com/appsfreedom_assets/menu_icon.png" style="position: relative; top: 1px;"/></a>
+            </nav>
+        </section>
+    </header>
+    
+    
+    <section id="content">
+      <section id="info">
+        <ul>
+          <header>James Lowlan</header>
+          <ul>
+            <li>Dept 4</li>
+            <li>03/07/2015</li>
+          </ul>
+          <li><strong>Vendor:</strong></li>
+          <li>Armwold Products</li>
+          <li><img src="http://www.thedesignlabproject.com/appsfreedom_assets/pie_horizontal.png" /></li>
+          <li><strong>Total:</strong></li>
+          <li>$11,146.28</li>
+        </ul>
+      </section>
+      <div id="content-inner">
+        <ul id="tile-container">
+            <li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li>
+            <li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li>
+            <li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li>
+            <li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li>
+                        <li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li>
+            <li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li><li class="tile">
+                <a href="#">
+                <header>10007402</header>
+                <h2>Armwold Products</h2>
+                <p>$2,046.38</p>
+                </a>
+            </li>
+          </div>
+        </ul>
+        
+    </section>
+    <section id="menu-container">
+      <nav id="menu-items">
+        <ul>
+          <li><a href="#"><img src="http://www.thedesignlabproject.com/appsfreedom_assets/user.png" /></a></li>
+          <li><a href="#"><img src="http://www.thedesignlabproject.com/appsfreedom_assets/gear.png" /></a></li>
+        </ul>
+      </nav>
+      <ul>
+        <li><header>Open:</header>21</li>
+        <li><header>Urgent:</header>6</li>
+        <li><header>Total:</header>$23,946</li>
+      </ul>
+      <img src="http://www.thedesignlabproject.com/appsfreedom_assets/pie.png" />
+    </section>
+    
+    <footer>
+        <nav id="primary-nav">
+            <a href="#"><img src="http://www.thedesignlabproject.com/appsfreedom_assets/cart.png" /></a>
+            <a href="#"><img src="http://www.thedesignlabproject.com/appsfreedom_assets/po_appr.png" /></a>
+            <a href="#"><img src="http://www.thedesignlabproject.com/appsfreedom_assets/po.png" /></a>
+            <a href="#" class="active"><img src="http://www.thedesignlabproject.com/appsfreedom_assets/gr.png" /></a>
+      </nav>
+    </footer>
+</section>
+<script type="text/javascript">
+  $('#menu').on('mousedown', function(){
+      
+      var contractWidth = $(window).width() - 250;
+          
+      $('#menu-container:not(.active)').velocity({right : '0px' }, function(){
+              $(this).addClass('active');
+              });
+          
+      $('#content:not(.contracted)').velocity({width : contractWidth}, function(){
+          $(this).addClass('contracted');
+          });  
+          
+      $('#menu-container.active').velocity({right : '-250px' }, function(){ 
+              $(this).removeClass('active'); 
+              });
+      
+      $('#content.contracted').velocity({width : '100%'}, function(){
+          $(this).removeClass('contracted');
+          });  
+      
+  });
+  
+  function touchScroll(id){
+  	if(isTouchDevice()){ //if touch events exist...
+  		var el=document.getElementById(id);
+  		var scrollStartPos=0;
+   
+  		document.getElementById(id).addEventListener("touchstart", function(event) {
+  			scrollStartPos=this.scrollTop+event.touches[0].pageY;
+  			event.preventDefault();
+  		},false);
+   
+  		document.getElementById(id).addEventListener("touchmove", function(event) {
+  			this.scrollTop=scrollStartPos-event.touches[0].pageY;
+  			event.preventDefault();
+  		},false);
+  	}
+  }
+  
+  function contentHeightFix(){
+    var contentHeight = $(window).height() - ($('#main > header').outerHeight() + $('#main > footer').outerHeight());
+  $('#content').height(contentHeight);
+  //$('#content-inner').height(contentHeight);
+  //$('#info').height(contentHeight);
+  $('#menu-container').height(contentHeight);
+  }
+  
+  $(document).on('ready', function(){  
+    
+    contentHeightFix();
+    touchScroll('content-inner');
+    touchScroll('info');
+    
+    });
+  
+  $(window).bind('resize', function(){ contentHeightFix(); });
+</script>
+</body>

@@ -1,0 +1,109 @@
+<div id="output"></div>
+
+<script type="text/javascript">
+
+  var final_total = 0
+  var years = 5
+  var yearly = []
+  var yearly_total = 0
+  var months = 12 * years
+  var monthly = []
+
+  var wyzant_hourly = 25
+  var wyzant_hours = (5/*days*/ * 6/*hours*/) + 4/*Sat hours*/
+
+  var pph_sites_price = 1500
+  var pph_sites_built = 2
+
+  var sites_hosted = 0
+  var sites_hosted_price = 30
+  var sites_hosted_servers = 0
+  var site_hosted_conversion = 0.325
+  var outside_hosting_conversion = 0
+
+  while(months--){
+    if(months + 1 == years * 12 - 1)
+      wyzant_hourly = 30
+    else if(months + 1 == years * 12 - 2){
+      wyzant_hourly = 35
+      wyzant_hours = (4/*days*/ * 5/*hours*/) + 4/*Sat hours*/
+    }
+    else if(months + 1 == years * 12 - 3){
+      wyzant_hourly = 40
+      pph_sites_built = 3
+      site_hosted_conversion = 0.45
+      pph_sites_price = 2000
+      wyzant_hours = (3/*days*/ * 4/*hours*/) + 2/*Sat hours*/
+      outside_hosting_conversion = 1
+    }
+    else if(months + 1 == years * 12 - 5){
+      pph_sites_built = 4
+      site_hosted_conversion = 0.6
+    }
+    else if(months + 1 == years * 12 - 11){
+      wyzant_hours = (2/*days*/ * 4/*hours*/) + 1/*Sat hours*/
+      pph_sites_built = 6
+      outside_hosting_conversion = 2
+    }
+    else if(months + 1 == years * 12 - 23){
+    	pph_sites_built = 10
+      outside_hosting_conversion = 3
+    }
+
+    var wyzant_total = wyzant_hourly * 0.75 * wyzant_hours * 52 / 12
+    var pph_total = (pph_sites_price - ((350 * 0.2) + ((pph_sites_price - 350) * 0.075))) * pph_sites_built
+    var sites_hosted_total = Math.round(sites_hosted) * sites_hosted_price - (420 * sites_hosted_servers)
+    var monthly_hosting_outside = (Math.round(Math.random() * 5) + outside_hosting_conversion) - Math.round(Math.random() * 5)
+    //console.log(monthly_hosting_outside)
+    var last_sites_hosted = sites_hosted
+    sites_hosted += (pph_sites_built * site_hosted_conversion) + monthly_hosting_outside
+    sites_hosted = (sites_hosted >= 0) ? sites_hosted : 0
+    sites_hosted_servers = Math.ceil(Math.round(sites_hosted) / 300)
+
+    var monthly_total = wyzant_total +  pph_total + sites_hosted_total
+    var data_object = {
+      "month" : (years * 12 - months),
+      "wyzant" : wyzant_hours + "hrs @ $" + wyzant_hourly,
+      "pph" : pph_sites_built + " sites @ $" + pph_sites_price,
+      "sites_hosted" : Math.round(sites_hosted) + " sites @ $" + sites_hosted_price,
+      "hosting_change" : (Math.round(sites_hosted) - Math.round(last_sites_hosted))
+    }
+    data_object.hosting_change = (data_object.hosting_change >= 0) ? '+' + data_object.hosting_change : data_object.hosting_change + ""
+
+    var totals_object = {'month_total' : monthly_total, 'wyzant_total' : wyzant_total, 'pph_total' : pph_total, 'sites_hosted_total' : sites_hosted_total}
+
+    monthly.push([data_object, totals_object])
+
+  	yearly_total += monthly_total
+
+    if((months + 1 != years * 12 && months % 12 == 0) || months == 0){
+      yearly.push('$' + Math.floor(yearly_total))
+      final_total += yearly_total
+      yearly_total = 0
+    }
+  }
+  /*console.log("Total: $" + final_total + "\n\nYearly totals:\n")
+  console.log(yearly)
+  console.log("\nFull month by month breakdown:\n")
+  console.log(monthly)*/
+
+  var output = document.getElementById("output")
+  function add_line(line){
+  	output.innerText = output.innerText + line
+  	var br = document.createElement('br')
+  	output.append(br)
+  }
+
+  add_line("Final earnings after " + years + " years: $" + Math.floor(final_total))
+  add_line("")
+  add_line("Yearly totals breakdown for all years: " + JSON.stringify(yearly).replace(/"/g, ' ').replace(/,/g, '|'))
+  add_line("")
+  add_line("Monthly breakdown of all totals:")
+  add_line("")
+  for(var month of monthly){
+  	add_line(JSON.stringify(month[0]).replace(/"/g, ' ').replace(/,/g, '|'))
+    add_line(JSON.stringify(month[1]).replace(/"/g, ' ').replace(/,/g, '|'))
+    add_line("")
+  }
+
+</script>

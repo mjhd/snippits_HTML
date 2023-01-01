@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  Hello world
+  <script src="script.js"></script>
+</body>
+
+  <script>
+    var stonkies = {
+      'AMZ' : [],
+      'TSLA' : [],
+      'MSFT' : []
+    }
+    window.setInterval(function(){
+      var AMZ_current_value = (stonkies.AMZ.length) ? stonkies.AMZ[stonkies.AMZ.length - 1] : 0
+      stonkies.AMZ.push(AMZ_current_value + 10)
+      console.log('Amazon: ' + stonkies.AMZ)
+    }, 2500)
+  </script>
+
+</html>

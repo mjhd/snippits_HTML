@@ -1,0 +1,115 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <button id="start">START QUIZ</button>
+  <div id="output">
+    <h2 id="question">Start quiz when ready</h2>
+    <ul id="answers">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+  <script>
+    //let high_scores = '[86, 88, 79, 91]'
+//JSON.parse()
+var quizQuestions = [
+    {
+        question: " The condition in an if/else statement is enclosed with _________.",
+        answers: [
+            { name: "quotes", selection: false },
+            { name: "curly brackets", selection: false },
+            { name: "parenthesis", selection: true },
+            {name: "square brackets", selection: false},
+        ]
+    },
+    {
+        question: "Arrays in Javascript can be used to store_________.",
+        answers: [
+            { name: "numbers and strings", selection: false },
+            { name: "other arrays", selection: false },
+            { name: "booleans", selection: false },
+            { name: "all of the above", selection: true },
+        ]
+    },
+       {
+        question: "String values must be enclosed within_________ when being assigned to variables",
+        answers: [
+            { name: "commas", selection: false },
+            { name: "curly brackets", selection: false },
+            { name: "quotes", selection: true },
+            { name: "parenthesis", selection: false },
+        ]
+    },
+       {
+           question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        answers: [
+            { name: "JavaScript", selection: false },
+            { name: "terminal/bash", selection: false },
+            { name: "for loops", selection: false },
+            { name: "console.log", selection:true },
+        ]
+
+       }
+
+    ];
+    
+    var output = document.getElementById("output")
+    var question_heading = document.getElementById("question")
+    var answer_list = Array.from(document.getElementById("answers").children)
+    //console.log(answer_list)
+
+  function start_app(){
+    for(var item of quizQuestions){
+      //question_heading = document.createElement("h2")
+    	//output.append(question_heading)
+      question_heading.innerHTML = item.question
+      answer_list[0].innerHTML = item.answers[0].name
+      answer_list[1].innerHTML = item.answers[1].name
+      answer_list[2].innerHTML = item.answers[2].name
+      answer_list[3].innerHTML = item.answers[3].name
+      answer_list[0].dataset.selection = item.answers[0].selection
+      answer_list[1].dataset.selection = item.answers[1].selection
+      answer_list[2].dataset.selection = item.answers[2].selection
+      answer_list[3].dataset.selection = item.answers[3].selection
+    }
+  }
+//output.innerHTML = high_scores
+let application_state = (localStorage.getItem('newww') === null) ? "[]" : localStorage.getItem('newww')
+application_state = JSON.parse(application_state)
+
+for(var answer of answer_list){
+  answer.addEventListener("click", function(event){
+    console.log(event.target)
+  })
+}
+
+document.getElementById("start").addEventListener("click", function(){ start_app() })
+
+//
+
+  </script>
+  
+  <script src="script.js"></script>
+
+ <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
+</body>
+
+</html>
+ -->

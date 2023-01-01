@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AppsFreedom</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://www.thedesignlabproject.com/appsfreedom_assets/jquery.mobile.custom.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
+  <style>
+  html, body { margin: 0; padding: 0; background: #f9f9f9; }
+* { font-family: 'Droid Serif', serif; color: #444; }
+li { list-style: none; }
+hr { padding: 0; margin: 0; border-color: #fff; background: transparent; }
+
+#main { position: fixed; width: 100%; height: 100%; background-image: url(https://www.transparenttextures.com/patterns/black-thread-light.png), url(https://www.mjhd.me/client_tests/appsfreedom/03Tile/img/Grey-lines-background-139.jpg); background-size: auto, cover; }
+
+#main > header { position: fixed; width: 100%; top: 0; background-color: rgba(0, 152, 255, 0.66); }
+
+#title-bar { display: none; overflow: hidden; padding: 10px; background: #F1E20F; border-bottom: solid 3px #bfbfbf; height: 0px; }
+#title-bar > img { height: 23px; }
+#title-bar h1 { float: right; margin: 0; color: #444; font-size: 22px; line-height: 26px; }
+
+nav { }
+
+#menu-bar {  }
+#menu-bar input { margin: 19px 0 0 25px; border-radius: 15px; padding: 12px 50px 13px 7px; outline: none; color: #fff; font-weight: bold; border: solid 3px #fff; font-size: 12px; line-height: 12px; background-color: rgba(255, 255, 255, 0.2); }
+#menu { float: right; margin: 5px 25px; border-radius: 10px; }
+#menu a { display: block; overflow: hidden; position: relative; width: 70px; height: 70px; border-radius: 100%; border: solid 3px #fff; background-color: rgba(255, 255, 255, 0.2); }
+#menu img { position: absolute; top: 18px; right: 12px; }
+
+
+#content > div { max-width: 980px; margin: auto; overflow: hidden; }
+#tile-container { padding: 0; margin: 0; overflow: hidden; width: 100%; }
+.tile { float: left; width: 23%; margin: 1%; box-sizing: border-box; border-radius: 100%; overflow: hidden; background-image: url(https://www.transparenttextures.com/patterns/cartographer.png); background-size: 170px; }
+.tile > * > * { padding: 0 5%; }
+.tile a { text-decoration: none; color: #333; text-align: center; display: block; height: 100%; width: 100%; border: solid 1px #333; }
+.tile a header { padding: 18px 0; background: #35de11; color: #fff; font-weight: bold; font-size: 22px; }
+
+
+
+
+#menu-container li { padding: 12px; font-size: 18px; font-weight: bold; color: #fff; text-align: left; border-bottom: solid 1px #666; cursor: pointer; }
+#menu-container li:hover { background: rgba(0, 0, 0, 0.45); outline: solid 1px #000; border: none; padding-bottom: 13px; }
+#menu-container > ul > li header { display: inline; color: #fff; font-size: 26px; font-weight: bold; float: left; padding-right: 15px; }
+#menu-container > img { display: block; float: right; margin-right: 5%;   max-width: 335px; }
+#menu-container > ul { text-align: right; margin: 0; padding: 0; position: absolute; bottom: 62px; width: 100%; height: calc(100% - 184px); overflow: auto; }
+#menu-container * { color: #fff; }
+
+#menu-items { background: transparent; width: 120px; float: left; }
+#menu-items ul { padding: 0; margin: 7px; }
+#menu-items li { display: inline-block; width: 80%; margin: 2% 4%; border: solid 2px #bfbfbf; box-sizing: border-box; border-radius: 7px; }
+#menu-items a { display: block; padding: 12px 0 10px 0; text-align: center; background: #00ade1; border-radius: 5px; }
+
+
+#primary-nav a { display: table-cell; width: 20%; border: 1px solid #fff; background: #00ade1; text-align: center; padding: 2%; }
+#primary-nav a.active { background: #35de11; }
+
+.tile * { color: #fff; text-align: left; }
+.tile { border-radius: 0; background-image: none; color: #444!important; }
+.tile * { color: #444!important; }
+
+.tile header { background: transparent!important; text-align: center; }
+.tile p span { font-weight: bold; margin-right: 20px; color: #222 !important; }
+
+
+
+
+
+
+
+
+
+
+#main > header { position: fixed; width: 27%; height: calc(96% - 4px); outline: solid 2px #444; top: calc(2% + 2px); left: 1%; background: transparent; overflow: hidden; }
+
+#title-bar { display: block; position: relative; overflow: hidden; padding: 10px; background: rgba(0, 0, 0, 0.45); border-bottom: solid 2px #333; height: 100px; }
+
+
+
+
+
+
+#content { position: fixed; height: 100%; width: 71%; left: 29%; overflow: auto; }
+
+.tile { float: left; width: 50%; padding: 1%; margin: 0; box-sizing: border-box; overflow: hidden; }
+
+#menu-container { width: 100%; left: 0; top: 122px; height: 100%; background: rgba(0, 0, 0, 0.45); }
+
+#primary-nav { position: absolute; display: table; bottom: 0; height: 60px; width: calc(100% - 2px); left: 0; border: 1px solid #fff; }
+
+#menu-bar input { margin: 12px 0; padding: 15px 10px; width: calc(90% - 92px); border-radius: 5px; float: left; }
+
+#menu { margin: 0;  }
+
+#menu a { display: block; overflow: hidden; position: relative; width: 70px; height: 70px; border-radius: 5px; border: solid 3px #fff; border: solid 2px #fff; background-color: #00ade1; }
+
+
+
+
+
+#menu-items { width: 100%; height: 0; background: transparent; overflow: hidden; }
+
+#menu-items ul { padding: 0; margin: 0; }
+
+#menu-items li { display: inline-block; width: 40%; margin: 2% 5%; border: solid 2px #fff; box-sizing: border-box; float: left; }
+
+#menu-items a { display: block; padding: 12px 0 10px 0; text-align: center; background: #00ade1; border-radius: 5px; }
+
+
+#tile-container li:nth-child(6n+1) a { background: rgba(24, 153, 239, 0.6); }
+#tile-container li:nth-child(6n+2) a { background: rgba(255, 165, 0, 0.75); }
+#tile-container li:nth-child(6n+3) a { background: rgba(188, 44, 245, 0.59); }
+#tile-container li:nth-child(6n+4) a { background: rgba(231, 76, 60, 0.69); }
+#tile-container li:nth-child(6n+5) a { background: rgba(255, 246, 0, 0.7); }
+#tile-container li:nth-child(6n+6) a { background: rgba(252, 53, 94, 0.7); }
+
+.tile a * { color: #fff !important; }
+
+.tile p { text-align: right; padding-bottom: 15px; border-bottom: solid 1px #444 }
+.tile p:last-child { border: none; padding-bottom: 0; }
+.tile p span { float: left }
+  </style>
+</head>
+<body>
+<div id="leftSide"></div>
+<div id="rightSide"></div>
+  <script type="text/javascript">
+  var initialHeight = $('#menu-container > ul').height();
+	var contractedHeight = initialHeight - 78;
+	var returnHeight = $('#main > header').height() - 184;
+	
+	//$('#menu-container > ul').addClass('animating');
+	//$('#menu-items').addClass('animating');
+	
+	$('#menu-container > ul:not(.contracted):not(.animating)').addClass('animating').velocity({ height : contractedHeight }, function(){ $(this).addClass('contracted').removeClass('animating').css('height', 'calc(100% - 262px)'); });
+	$('#menu-items:not(.active):not(.animating)').addClass('animating').css('border-bottom', 'solid 2px #333').velocity({ height : 76 }, function(){ $(this).addClass('active').removeClass('animating'); });
+	
+	$('#menu-container > ul.contracted:not(.animating)').addClass('animating').velocity({ height : returnHeight }, function(){ $(this).removeClass('contracted').removeClass('animating').css('height', ''); });
+	$('#menu-items.active:not(.animating)').addClass('animating').velocity({ height : 0 }, function(){ $(this).css('border-bottom', 'none').removeClass('active').removeClass('animating'); });
+});
+
+function touchScroll(id){
+	if(isTouchDevice()){ //if touch events exist...
+		var el=document.getElementById(id);
+		var scrollStartPos=0;
+ 
+		document.getElementById(id).addEventListener("touchstart", function(event) {
+			scrollStartPos=this.scrollTop+event.touches[0].pageY;
+			event.preventDefault();
+		},false);
+ 
+		document.getElementById(id).addEventListener("touchmove", function(event) {
+			this.scrollTop=scrollStartPos-event.touches[0].pageY;
+			event.preventDefault();
+		},false);
+	}
+}
+
+function contentHeightFix(){
+  var menuDifferential = 0;
+  var contentHeight = ($(window).height() - menuDifferential - 90);
+$('#content').height(contentHeight);
+}
+
+function circle(){
+$('.tile').height($('.tile').width());
+}
+
+$(document).on('ready', function(){
+	
+	$('#tile-container > li').each(function(){
+		var container = $(this);
+		var title = container.children('a').children('header').text();
+		$('#menu-container ul').append('<li></li>'); 
+		$('#menu-container li:last').html(title);
+		title = title.replace(/\s+/g, '');
+		$('#menu-container li:last').bind('click', function(){ scroller(container); });
+		$(this).attr('id', title);
+		});
+	
+	touchScroll('content');
+	touchScroll('tile-container > li');
+	//contentHeightFix();
+  
+	//circle();
+	});
+	
+function scroller(container){
+	
+	var scrollTo = ($('#tile-container').position().top * -1) + container.position().top;
+	$('#content').animate({scrollTop : scrollTo}, 'fast');
+	
+	}
+//function scroller(id){ var container = document.getElementById(id); var scrollTo = conatainer.offset().top; /*$('#content').animate({scrollTop : scrollTo}, 'fast');*/ console.log(scrollTo); };
+
+$(window).bind('resize', function(){
+
+	//contentHeightFix(); 
+	//circle(); 
+	});
+  </script>
+</body>
+</html>

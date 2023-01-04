@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+<style>
+  #canvas { width: 100%; max-height: 300px; height: 100%; }
+</style>
+</head>
+<body>
+  <div id="svg-container"><svg id="canvas"></svg></div>
+</body>
+
+<script type="text/javascript">
+  var frame = Snap("#canvas");
+
+  frame.attr({ viewBox: "0 0 600 600" });
+  var t = frame.text(0,50,'');
+  
+  var bigCircle = frame.circle(150, 155, 110);
+  bigCircle.attr({ fill: "#bada55", stroke: "#000", strokeWidth: 5 });
+  
+  var smallCircle = frame.circle(100, 150, 50);
+  var secondCircle = frame.circle(200, 150, 50);
+  var discs = frame.group(smallCircle, secondCircle);
+  discs.attr({ fill: "#fff",  stroke: "#000", strokeWidth: 5 });
+  
+  bigCircle.attr({ id: 'bigSur' });
+  discs.attr({ id : 'disks', fill : '#444' });
+  
+  window.setTimeout(function(){
+      discs.attr({ id : 'disks', fill : '#fff' });
+      smallCircle.animate({r: 90}, 1000);
+      }, 3000);
+  
+  window.setTimeout(function(){
+      //$('g').animate({height: "200px"}, 500);
+      bigCircle.attr({ 'mask': discs });
+      }, 5000);
+  
+  var smallCircle2;
+  var bigCircle2;
+  window.setTimeout(function(){
+      bigCircle2 = frame.circle(150, 155, 110);
+      bigCircle2.attr({ id : 'bigSur2', fill : 'transparent', stroke: "#444", strokeWidth: 5 });
+      smallCircle2 = frame.circle(100, 150, 50);
+      smallCircle2.attr({ id : 'disk2', fill : '#444' });
+      }, 7000);
+  
+  window.setTimeout(function(){
+      smallCircle2.animate({r: 10, cx : 120}, 1000);
+      $('#bigSur2').css('z-index', '-20');
+      }, 9000);
+  
+  var smallCircle3;
+  window.setTimeout(function(){
+      smallCircle3 = frame.circle(120, 150, 10);
+      smallCircle3.attr({ id : 'disk3', fill : '#444' });
+      smallCircle3.animate({cx : 90}, 500);
+      }, 10000);
+  
+  var smallCircle4;
+  window.setTimeout(function(){
+      smallCircle4 = frame.circle(90, 150, 10);
+      smallCircle4.attr({ id : 'disk4', fill : '#444' });
+      smallCircle4.animate({cx : 60}, 500);
+      }, 10500);
+  
+  var logo;
+  var headCircle;
+  window.setTimeout(function(){
+      logo = $('svg *');
+      logo = frame.selectAll(logo);
+      logo.animate({ transform: 'r270,256,256'},1000);
+      }, 11000);
+  
+  var logo;
+  var preLogo;
+  window.setTimeout(function(){
+      logo1 = frame.group(bigCircle, smallCircle2, bigCircle2, smallCircle3, smallCircle4 );
+  
+      logo1.animate({ transform: 'r270,256,256'},1000);
+      discs.animate({ transform: 'r270,256,256'},1000);
+      
+      smallCircle2.animate({cy : 157}, 1000);
+      smallCircle3.animate({cy : 157}, 1000);
+      smallCircle4.animate({cy : 157}, 1000);
+      
+      headCircle = frame.circle(158, 248, 0);
+      headCircle.attr({fill : 'transparent', stroke : '#444', strokeWidth: 5 });
+      }, 12000);
+  
+  window.setTimeout(function(){
+      
+      headCircle.animate({r : 70, cy : 182}, 1000);
+      
+      }, 13000);
+  
+  window.setTimeout(function(){
+      
+      smallCircle2.animate({r : 15, cx : 190}, 1000);
+      smallCircle3.animate({r : 15, cx : 140}, 1000);
+      smallCircle4.animate({r : 15, cx : 90}, 1000);
+      
+      }, 14000);
+  
+  window.setTimeout(function(){
+      
+      $('#svg-container').velocity({width : '50%'}, 1000);
+      
+      }, 15000);
+  
+  window.setTimeout(function(){
+      
+      frame.attr({ viewBox: "0 0 600 900" });
+      baseCircle = frame.circle(155, 475, 0);
+      baseCircle.attr({ id : 'baseCircle', fill : 'transparent', stroke: "#444", strokeWidth: 5 });
+      baseCircle.animate({r: 140, cy: 610}, 1000);  
+      
+      }, 16000);
+  
+  window.setTimeout(function(){
+      
+     
+      
+      }, 16000);
+</script>
+</html>

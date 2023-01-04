@@ -1,4 +1,5 @@
-a {
+body > a {
+  display: inline-block;
   margin: 12px;
 }
 picture {
@@ -8,4 +9,7 @@ picture {
     width: 100%;
     margin-top: 16px;
   }
+}
+li {
+  padding: 1px;
 }

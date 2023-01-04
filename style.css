@@ -1,1 +1,1 @@
-a { margin: 12px; } picture { display: block; max-width: 460px; } picture img { width: 100%; margin-top: 16px; }
+body > a { display: inline-block; margin: 12px; } picture { display: block; max-width: 460px; } picture img { width: 100%; margin-top: 16px; } li { padding: 1px; }

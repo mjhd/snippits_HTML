@@ -6,7 +6,22 @@
   <title>MegaTable</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:300,400,600,900&amp;lang=en" />
   <!--<link href="style.css" rel="stylesheet" type="text/css" />-->
-
+  <style>
+    * { font-weight: bold; }
+    table { width: 100%; }
+    td { width: 25%; padding: 10px; outline: solid 1px #000; background: #09C6F1; }
+    
+    thead { outline: solid 1px #000; }
+    thead td { width: 50%; color: #fff; background: #999; outline
+    : solid 1px #999; }
+    span { display: inline-block; padding: 5px; font-size: 20px; border: solid 1px #fff; }
+    
+    tbody tr:nth-child(1) td { background: red; }
+    tbody tr:nth-child(1) td { font-size: 22px; color: #fff; text-align: center; padding: 20px; }
+    tbody span { border-color: #000; }
+    ul { padding: 0; }
+    li { padding: 6px 0; list-style: none; }
+  </style>
 </head>
 <body>
 
@@ -17,7 +32,150 @@
 
 <main>
   <table id="mega_table">
-    
+    <thead>
+        <tr>
+            <td colspan="2"><span>C</span> = CodeCademy</td>
+            <td colspan="2"><span>T</span> = Treehouse</td>
+        </tr>
+        <tr>
+            <td colspan="2"><span>CS</span> = CodeSchool</td>
+            <td colspan="2"><span>TH</span> = Thinkful</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>TRACK</td>
+            <td>OneNote Folder</td>
+            <td>Project</td>
+            <td>Class</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><span>C</span> Command Line</li>
+                    <li><span>CS</span> GIT (on $9 signup special)</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Bash Terminal</li>
+                    <li>Dev and Deploy tools</li>
+                    <li>LESS</li>
+                    <li>Front End Compliance</li>
+                    <li>Other tools</li>
+                </ul>
+            </td>
+            <td rowspan="2">Prototypes from Web Assets while practicing Dev & Deploy</td>
+            <td rowspan="2">SDCE Android Dev 9/8&nbsp;-&nbsp;11/19</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><span>T</span> Front End Dev (to AJAX)</li>
+                    <li><span>C</span> Meet JSON</li>
+                    <li><span>T</span> Front End Dev (finish)</li>
+                    <li><span>T</span> API's</li>
+                    <li><span>C</span> D3 Intro</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>JSON</li>
+                    <li>API's</li>
+                    <li>SVG</li>
+                    <li>SnapJS SVG</li>
+                    <li>D3JS</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><span>T</span> Full Stack JS (up to node)</li>
+                    <li><span>C</span> RegEx Course (2)</li>
+                    <li><span>CS</span> RexEx Path</li>
+                    <li><span>CS</span> JS Path</li>
+                    <li><span>T</span> Full Stack (finish)</li>
+                    <li><span>TH</span> Node</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>RegEx</li>
+                    <li>MEAN</li>
+                    <li>Angular</li>
+                    <li>Node</li>
+                    <li>Express</li>
+                    <li>Gulp/Grunt/Bower/NPM</li>
+                    <li>MongoDB</li>
+                </ul>
+            </td>
+            <td rowspan="2">DigiBlok.io <br/> - MEAN -</td>
+            <td>MongoDB Uni</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><span>T</span> JAVA</li>
+                    <li>learnjavaonline.org</li>
+                </ul>
+            </td>
+            <td>JAVA</td>
+            <td>Palomar Java 1/14&nbsp;-&nbsp;5/23</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><span>T</span> Wordpress Dev</li>
+                    <li><span>T</span> PHP Dev</li>
+                </ul>
+            </td>
+            <td>LAMP</td>
+            <td>
+                <ul>
+                    <li>NinjaTheme <br /> - WordPress -</li>
+                    <li>GradeTracker <br /> w/ Back End <br /> - LAMP -</li>
+                </ul>
+            </td>
+            <td>None</td>
+        </tr>
+        <tr>
+            <td><span>C</span> Python</td>
+            <td>None</td>
+            <td rowspan="2">WhereUat? <br /> - MEAN -</td>
+            <td>MITx CS in Python</td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><span>C</span> Ruby</li>
+                    <li><span>T</span> Ruby</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Sass</li>
+                    <li>RSS</li>
+                    <li>GSAP</li>
+                    <li>Future Learn</li>
+                </ul>
+            </td>
+            <td>Coding Dojo</td>
+        </tr>
+        <tr>
+            <td colspan="2">PluralSight</td>
+            <td colspan="2">
+                <ul>
+                    <li>WhereUat?</li>
+                    <li>DigiBlok.io</li>
+                    <li>NinjaTheme</li>
+                    <li>frontPage designBlog</li>
+                    <br />
+                    <li>?? DevelopMint ??</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
   </table>
 </main>
 <!--<script type="text/javascript" src="app.js"></script>-->

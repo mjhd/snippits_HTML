@@ -105,10 +105,6 @@
       }
       update(["refresh"])
     }
-    if(localStorage.getItem("poop"))
-      console.log("poop")
-    else {
-      console.log("dooop")
     
 
     function update(options){
@@ -137,6 +133,8 @@
         auto_click(1000 / document.app.auto_click.rate)
       }
     }
+
+    app()
 
     document.getElementById("clicker").addEventListener("mousedown", function(event){
       event.target.classList.add("active")
@@ -175,7 +173,6 @@
       window.clearInterval(document.app.hold_timer)
     })
 
-    app()
   </script>
 
   <!--<script src="script.js"></script>-->

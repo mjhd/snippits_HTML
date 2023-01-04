@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <!--<link href="style.css" rel="stylesheet" type="text/css" />-->
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    button {
+      padding: 4px 6px;
+    }
+    #output, #clicker {
+      margin: 5px;
+    }
+    #clicker.active, #stupid_click.active {
+      outline: solid 2px rgb(0,146,255);
+    }
+    #clicker + div {
+      position: absolute;
+      top: 100px;
+      left: 140px;
+      padding: 12px;
+      padding-right: 120px;
+      outline: solid 1px #555;
+    }
+    #clicker + div > * {
+      display: block;
+    }
+    #clicker + div > div {
+      position: absolute;
+      right: -8px;
+      top: calc(100% - 6px);
+      padding: 5px;
+      border: solid 1px #555;
+      background: #fff;
+    }
+    #clicker + div > div:after {
+      content: "Click and Hold";
+      position: absolute;
+      top: 100%;
+      right: 0px;
+      width: 200px;
+      font-size: 13px;
+      color: #9d9d9d;
+      text-align: right;
+    }
+    #click_speed {
+      position: relative;
+    }
+    #auto_click {
+      border: solid 2px red;
+    }
+    #auto_click:after {
+      content: " (OFF)";
+    }
+    #auto_click.active {
+      border: solid 2px green;
+    }
+    #auto_click.active:after {
+      content: " (ON)";
+    }
+    #click_speed:after {
+      content: attr(data-value) " clicks per sec";
+      position: absolute;
+      top: 0px;
+      left: calc(100% + 2px);
+      width: 200px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Button Clicker:</h2>
+
+  <div id="output"></div>
+  <button id="clicker">Add</button>
+
+  <div>
+    <button id="auto_click">Auto Click</button>
+    <input id="click_speed" type="range" min="10" max="100" step="10"/>
+    <div><button id="stupid_click">Stupid Click</button></div>
+  </div>
+
+  <script type="text/javascript">
+    function app(){
+      document.app = {}
+      document.app.view = document.getElementById("output")
+      document.app.clicks = 0
+  
+      document.app.auto_click = {}
+      document.app.auto_click.range = document.getElementById("click_speed")
+      document.app.auto_click.state = 0
+      document.app.auto_click.rate = 0
+  
+      document.app.clicker = function(){
+        document.app.clicks++
+      }
+      document.app.refresh_view = function(){
+        document.app.view.innerText = document.app.clicks
+        document.app.auto_click.range.dataset.value = document.app.auto_click.range.value
+      }
+      update(["refresh"])
+    }
+    if(localStorage.getItem("poop"))
+      console.log("poop")
+    else {
+      console.log("dooop")
+    
+
+    function update(options){
+      for (let option of options){
+        switch(option){
+          case "click":
+            document.app.clicker()
+          break;
+          case "refresh":
+            document.app.refresh_view()
+          break;
+          default:
+            console.log("invalid application state option")
+        }
+      }
+    }
+
+    function auto_click(timeout){
+      if(document.app.auto_click.rate > 0){
+        update(["click", "refresh"])
+        document.app.auto_click.rate--
+        window.setTimeout(function(){ auto_click(timeout) }, timeout)
+      }
+      else if(document.app.auto_click.state === 1){
+        document.app.auto_click.rate = parseInt(document.app.auto_click.range.value)
+        auto_click(1000 / document.app.auto_click.rate)
+      }
+    }
+
+    document.getElementById("clicker").addEventListener("mousedown", function(event){
+      event.target.classList.add("active")
+    })
+
+    document.getElementById("clicker").addEventListener("click", function(event){
+      event.target.classList.add("active")
+      update(["click", "refresh"])
+      window.setTimeout(function(){ event.target.classList.remove("active") }, 175)
+    })
+
+    document.getElementById("auto_click").addEventListener("mousedown", function(event){
+      event.target.classList.toggle("active")
+      if(!document.app.auto_click.state){
+        document.app.auto_click.state = 1
+        auto_click(0)
+      }
+      else
+        document.app.auto_click.state = 0
+    })
+
+    document.app.auto_click.range.addEventListener("change", function(){
+      update(["refresh"])
+    })
+
+    document.getElementById("stupid_click").addEventListener("mousedown", function(event){
+      event.target.classList.add("active")
+      let clicker = document.getElementById("clicker")
+      document.app.hold_timer = window.setInterval(function(){
+        let click = new Event("click")
+        clicker.dispatchEvent(click)
+      }, 250)
+    })
+    document.getElementById("stupid_click").addEventListener("mouseup", function(event){
+      event.target.classList.remove("active")
+      window.clearInterval(document.app.hold_timer)
+    })
+
+    app()
+  </script>
+
+  <!--<script src="script.js"></script>-->
+
+</body>
+
+</html>

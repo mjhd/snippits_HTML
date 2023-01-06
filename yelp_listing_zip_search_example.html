@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <!--<link href="style.css" rel="stylesheet" type="text/css" />-->
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    img { width: 100px; height: auto; }
+
+    #search + section:before {
+      content: "Try 94433";
+      display: inline-block;
+      padding: 2px;
+    }
+  </style>
+</head>
+<body>
+ 
+  <input id="zip_code" type="text">
+  <button id="search">search</button>
+  <section class="section-cards">
+    <div class="grid-container">
+        <div id="output" class="grid-x grid-margin-x small-up-2 medium-up-3"></div>
+    </div>
+  </section>
+
+  <script type="text/javascript">
+    /*fetch("https://api.yelp.com/v3/businesses/search")
+    .then(response => {
+    	console.log(response.text())
+    })*/
+    
+    let output_str = '{ "total": 1316, "businesses": [ { "rating": 4.5, "price": "$$", "phone": "+14154212337", "id": "molinari-delicatessen-san-francisco", "categories": [ { "alias": "delis", "title": "Delis" } ], "review_count": 910, "name": "Molinari Delicatessen", "url": "https://www.yelp.com/biz/molinari-delicatessen-san-francisco", "coordinates": { "latitude": 37.7983818054199, "longitude": -122.407821655273 }, "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/6He-NlZrAv2mDV-yg6jW3g/o.jpg", "location": { "city": "San Francisco", "country": "US", "address2": "", "address3": "", "state": "CA", "address1": "373 Columbus Ave", "zip_code": "94133" } }, { "rating": 4.5, "price": "$$", "phone": "+14154212337", "id": "molinari-delicatessen-san-francisco", "categories": [ { "alias": "delis", "title": "Delis" } ], "review_count": 910, "name": "Molinari Delicatessen", "url": "https://www.yelp.com/biz/molinari-delicatessen-san-francisco", "coordinates": { "latitude": 37.7983818054199, "longitude": -122.407821655273 }, "image_url": "http://s3-media4.fl.yelpcdn.com/bphoto/6He-NlZrAv2mDV-yg6jW3g/o.jpg", "location": { "city": "San Francisco", "country": "US", "address2": "", "address3": "", "state": "CA", "address1": "448 Columbus Dr", "zip_code": "94433" } } ] }'
+    
+    
+    let output = document.getElementById("output")
+    let search = document.getElementById("search")
+    
+    
+    
+    search.addEventListener("click", function(event){
+    	let zip_code = document.getElementById("zip_code").value
+      if(zip_code.match(/[0-9]{5}/)){
+      	//console.log(zip_code)
+        // API CALL
+        
+        let json_data = JSON.parse(output_str)
+        for(var entry of json_data.businesses){
+        
+        
+          let cell = document.createElement("div")
+          cell.classList.add("cell")
+          let card= document.createElement("div")
+          card.classList.add("card")
+          let img=document.createElement("img")
+          img.src=entry.image_url
+          
+          card.append(img)
+          cell.append(card)
+         
+          
+          //cell.innerHTML = entry.location.address1
+        	//console.log(entry)
+          output.append(cell)
+         
+          
+          //output.innerHTML = output.innerHTML + entry.location.address1
+      	}
+      }
+    })
+    
+    
+    
+    
+    /*let API_BASE_URL =
+      'https://api.yelp.com/v3/businesses/search';
+    let BEARER_TOKEN =
+      'qF2pQ1iRIlNuUfRvyWZBdNtZBy-bnA1i6PcMYtFVgLlO7-ulf8HmTPmrEcT_q3E0ccYosy-skN39K95grkk_OVIdogpKKFy_3w-sAb4dWA-xBj-8INX5oSq2lvHaYnYx';
+    
+    fetch(API_BASE_URL, {
+      headers: {
+        Authorization: BEARER_TOKEN,
+        'Content-Type': 'application/json',
+        Origin: 'jsfiddle.net',
+        withCredentials: true,
+      },
+    })
+      .then(res => res.json())
+      .then(json => {
+    		console.log(json)
+      });
+    */
+    
+  </script>
+
+  <!--<script src="script.js"></script>-->
+
+</body>
+</html>

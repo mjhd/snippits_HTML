@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<style>
+  body { overflow: hidden; }
+  #vega, #birdi, #jack {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    bottom: 40px;
+    z-index: 500;
+  }
+  #birdi { margin-left: 100px; }
+  #jack { left: 430px; }
+  #bg {
+      position: absolute;
+      height: auto;
+      width: 120%;
+      left: 0;
+      bottom: 0;
+  }
+</style>
+</head>
+<body>
+
+<img id="vega" src="https://m1.behance.net/rendition/modules/154514855/disp/f27fb705d7bf9669bb567d81578258b0.png?cb=445995921">
+
+<img id="birdi" src="https://m1.behance.net/rendition/modules/154514847/disp/2a37e670dae7c215a1d5ccaa72d952d1.png?cb=990748456">
+    
+<img id="jack" src="https://m1.behance.net/rendition/modules/154514851/disp/bce7b2980d0502a029da3bccd72827f1.png">
+    
+<img id="bg" src="http://www.thedesignlabproject.com/bigBox/gsap/vectors___cute_background_01_by_oscarfuentes-d1f4pto.jpg">
+
+<script type="text/javascript">
+  function doAni() {
+    TweenLite.to('#vega', 2, {left:375});
+    TweenLite.to('#birdi', 2, {left:200});
+    TweenLite.to(['#birdi', '#vega'], 2, {height: 70, width: 70, ease:Quart.easeInOut, onComplete: stepForward});
+    
+    TweenLite.to('#bg', 2, {left:-85, ease:Quart.easeInOut});
+    
+    TweenLite.from('#jack', 1, {left:600, height: 200, width: 200, delay: 1.5});
+    
+    TweenLite.to("#birdi", 1, {left:800, height:400, width: 400, bottom: -200, delay: 1.6});
+  }
+  
+  function stepForward() {
+      TweenLite.to('#jack', 1, { left: 440, bottom: 0, height: 140, width: 140 });
+      TweenLite.to('#vega', 1, { left: 365, bottom: 20, height: 90, width: 90, onComplete: vegaRun });
+  }
+  
+  function vegaRun() {
+      TweenLite.to('#vega', 0.3, { left: -110, ease:Circ.easeIn});
+      TweenLite.to('#jack', 0.3, { left: -110, ease:Circ.easeIn, delay: 0.1});
+  }
+  
+  doAni();
+</script>
+</body>
+</html>

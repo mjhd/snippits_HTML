@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<style>
+  html { height: 100%; margin: 0; padding: 0; overflow: hidden; }
+  body { height: 98%; width: 104%; margin: 2% 0; padding: 0; }
+  section { position: relative; outline: solid 1px red; height: 30%; width: 30%; float: left; margin-left: 2%; text-align: left; }
+  section.tall { height: 60%; }
+  section.wide { width: 60%; }
+  section.square { width: 28%; height: 24%; }
+  section.push-down { top: -24% }
+  section.last { top: -18%; }
+  
+  h1 { height: 15px; margin: 0; margin-left: 25px; }
+  p { padding: 20px 10px; text-align: left; }
+  .square img { max-width: 100%; max-height: 100%; margin: auto; }
+  .wide img { width: 100%; height: 100%; }
+  .wide p { border-top: solid 1px #000; }
+  section > * { display: none; }
+  section > .button { display: inline-block; position: absolute; bottom: 10px; left: 13%; width: 74%; padding: 20px 0; text-align: center; font-weight: bold; font-family: sans-serif; border: solid 2px #000; border-radius: 15px; cursor: pointer; }
+  
+  *::selection {
+    background: transparent; /* WebKit/Blink Browsers */
+  }
+  *::-moz-selection {
+    background: transparent; /* Gecko Browsers */
+  }
+</style>
+</head>
+<body>
+
+<section class="wide"><h1>Pretty cool huh?</h1><p>Or maybe you don't find it that cool - You're welcome to like... your opion... man...</p></section>
+<section class="tall"><p>Just an idea of a UI layout I had. Threw it together after a long day of learning some of the finer points of version management with GitHub, and just needed a creative break ;)</p></section>
+<section class="tall push-down"><aside class="button">Show Content</aside></section>
+<section class="square push-down"><img src="http://www.thedesignlabproject.com/iconmonstr-easter-11-icon.svg" /></section>
+<section class="wide last"><img src="http://www.thedesignlabproject.com/spirit-wolf.png" /></section>
+
+<script type="text/javascript">
+  $('.button').on('click', function(){ 
+    var itemsOff = $('section > *:not(.button,.on)');
+    var itemsOn = $('section > *.on:not(.button)');
+    
+    var buttonOff = $('section > .button:not(.on)');
+    var buttonOn = $('section > .button.on');
+    
+    itemsOff.css('display', 'block');
+    itemsOff.addClass('on');
+    
+    itemsOn.css('display', 'none');
+    itemsOn.removeClass('on');
+    
+    buttonOff.text('Hide Content');
+    buttonOff.addClass('on');
+    
+    buttonOn.text('Show Content');
+    buttonOn.removeClass('on');
+    
+    itemsOff.parent().css('outline', 'none');
+    buttonOff.parent().css('outline', 'none');
+
+    itemsOn.parent().css('outline', '');
+    buttonOn.parent().css('outline', '');
+	});
+</script>
+</body>
+</html>

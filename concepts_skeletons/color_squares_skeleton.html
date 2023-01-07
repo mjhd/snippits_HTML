@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <!--<style>
+  $background: #FFD2E2; 
+  $colors: #FF6C9B, #BD9BFF, #CF1E68, #EF5F9C, #82d7ff, #FE0671;
+  
+  @mixin colors {
+    @for $i from 1 through length($colors) {
+      &:nth-child(#{length($colors)}n+#{$i}) {
+        background: #{nth($colors, $i)};
+        border-color: #{nth($colors, (length($colors) + 1) - $i)};
+      }
+    }
+  }
+  
+  html, body {
+    /* background: nth($colors, 10); */
+    background: $background;
+    margin: 0;
+    padding: 0;
+  }
+  ul {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    list-style: none;
+    max-width: 980px;
+  }
+  li {
+    float: left;
+    width: 16%;
+    min-height: 110px;
+    margin: 25px calc(2% - 8px);
+    padding: 6px;
+    border: solid 2px;
+    outline: solid 1px #f5D300;
+    color: #444;
+    @include colors;
+    cursor: pointer;
+  }
+  li > span {
+    display: block;
+    margin-top: 20%;
+  }
+  
+  </style>-->
+  <style>
+    html,
+    body {
+        background: #FFD2E2;
+        margin: 0;
+        padding: 0;
+    }
+    ul {
+        margin: 0 auto !important;
+        padding: 0 !important;
+        list-style: none;
+        max-width: 980px;
+    }
+    li {
+        float: left;
+        width: 16%;
+        min-height: 110px;
+        margin: 25px calc(2% - 8px);
+        padding: 6px;
+        border: solid 2px;
+        outline: solid 1px #f5D300;
+        color: #444;
+        cursor: pointer;
+    }
+    li:nth-child(6n+1) {
+        background: #FF6C9B;
+        border-color: #FE0671;
+    }
+    li:nth-child(6n+2) {
+        background: #BD9BFF;
+        border-color: #82d7ff;
+    }
+    li:nth-child(6n+3) {
+        background: #CF1E68;
+        border-color: #EF5F9C;
+    }
+    li:nth-child(6n+4) {
+        background: #EF5F9C;
+        border-color: #CF1E68;
+    }
+    li:nth-child(6n+5) {
+        background: #82d7ff;
+        border-color: #BD9BFF;
+    }
+    li:nth-child(6n+6) {
+        background: #FE0671;
+        border-color: #FF6C9B;
+    }
+    li > span {
+        display: block;
+        margin-top: 20%;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+    <li><span>ve al la vrpin:8080</span></li>
+  </ul>
+  <script type="text/javascript">
+  
+  </script>
+</body>
+</html>

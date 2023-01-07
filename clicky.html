@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    #clicky {
+      padding: 8px;
+      outline: solid 1px #00f;
+      color: #00f;
+      background: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    #clicky.red {
+      outline: solid 4px red;
+      color: red;
+      font-weight: 900;
+    }
+  </style>
+</head>
+<body>
+  
+<h1 id="ferret"></h1>
+<button id="clicky">CLICK!</button>
+
+<script type="text/javascript">
+    var box_stack = new Array()
+
+    function rando(){
+    	rando_val = parseInt(window.crypto.getRandomValues(new Uint32Array(1))[0].toString().substring(0,4))
+      if (rando_val > 3500 && rando_val < 6500)
+      	rando_val /= 2
+      if (rando_val >= 6500)
+        rando_val /= 3
+      if (rando_val <= 500)
+      	rando_val += 500
+      if (rando_val <= 1500)
+      	rando_val += Math.floor(rando_val / 10)
+    
+      //console.log(Math.floor(rando_val))
+    
+      return Math.floor(rando_val)
+    }
+    
+    window.setInterval(function(){
+    	if (box_stack[0]){
+      	eval(box_stack[0])
+      	box_stack = box_stack.slice(1, box_stack.length)
+      }
+      else
+      	console.log('empty stack :(')
+      
+    }, rando())
+    
+    
+    
+      
+    
+    var example_functions = ['window.alert("Whoa!")', 'document.getElementById("ferret").innerHTML="Ferrets everywhere!!"', 'document.getElementById("clicky").classList.add("red")', 'console.log("shweezers")']
+    
+    document.getElementById('clicky').addEventListener('click', function(){
+    	example_functions.forEach(function(func){
+      	box_stack.push(func)
+      })
+    })
+
+  </script>
+</body>
+</html>

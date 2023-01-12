@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+  <style>
+    #main {
+      position: relative;
+      width: 85%;
+      max-width: 1100px;
+      margin: 25px auto;
+    }
+    
+    .slider, .slide_wrap, .slide {
+      padding: 0;
+      margin: 0;
+    }
+    .slider, .slide_wrap {
+      position: relative;
+    }
+    .slide_wrap {
+      /*overflow: hidden;*/)
+    }
+    
+    .arrow {
+      position: absolute;
+      top: calc(50% - 25px);
+      width: 60px;
+      height: 50px;
+      outline: dashed 2px #f00;
+      z-index: 400;
+    }
+    .arrow.left {
+      right: 100%;
+    }
+    .arrow.right {
+      left: 100%;
+    }
+    
+    .slide {
+      position: absolute;
+      width: 100%;
+      left: 100%;
+      top: 0px;
+      list-style: none;
+    }
+    .slide.active {
+      left: 0;
+      position: relative;
+    }
+    .slide img {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <main id="main">
+    <section id="slider_01" class="slider">
+      <aside class="arrow left"></aside>
+      <ul class="slide_wrap">
+        <li class="slide first active"><img src="https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73751/world.topo.bathy.200407.3x21600x10800.jpg" alt=""></li>
+        <li class="slide" data-src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Wikimania_2014_tshirt_design_very_large.jpg"><img src="#" alt=""></li>
+        <li class="slide" data-src="https://www.eso.org/public/archives/print_posters/large/print_poster_0025.jpg"><img src="#" alt=""></li>
+        <!--<li class="slide"><img data-src="https://ichef.bbci.co.uk/images/ic/960x540/p025k871.jpg" alt=""></li>-->
+        <li class="slide last" data-src="https://cdn.spacetelescope.org/archives/images/large/heic1601b.jpg"><img src="#" alt=""></li>
+      </ul>
+      <aside class="arrow right"></aside>
+    </section>
+  </main>
+
+  <script type="text/javascript">
+    let sliders = Array.prototype.slice.call(document.getElementsByClassName('slider'))
+
+    function slide(is_left, active_slide){
+    
+      let next_slide = (is_left) ? active_slide.previousElementSibling : active_slide.nextElementSibling  
+    
+    	TweenLite.to(active_slide, 0.5, {left: ((is_left) ? '100%' : '-100%'), function(){ active_slide.classList.remove('active') }})
+      TweenLite.to(next_slide, 0.5, {left: '0', onComplete: function(){
+      	next_slide.classList.add('active')
+      }})
+    }
+
+    function build_slides(slides){
+    
+    slides.forEach(function(slide){
+      	if(slide.dataset.src)
+        	slide.previousElementSibling.firstElementChild.onload = function(slide){ 
+          	var inner_slide = slide.target.parentElement.nextElementSibling
+            inner_slide.firstElementChild.src = inner_slide.dataset.src }
+      })
+    }
+
+    sliders.forEach(function(slider){
+    	let arrows = Array.prototype.slice.call(slider.getElementsByClassName('arrow'))
+    	let slides = Array.prototype.slice.call(slider.getElementsByClassName('slide'))
+      
+      arrows.forEach(function(arrow){
+      	arrow.addEventListener('click', function(){
+        	let active_slide = arrow.parentElement.getElementsByClassName('active')[0]
+          if(!active_slide)
+          	return
+        	slide((arrow.classList.contains('left')) ? 1 : 0, active_slide)
+      	})
+      })
+    	build_slides(slides)
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    .ploorp {
+      width: 80%;
+      max-width: 780px;
+      margin: auto;
+      outline: solid 1px #555;
+    }
+  </style>
+  <script type="text/javascript">
+
+    function ft_fit(container, font){
+        //console.log("ft_fit")
+        let content = container.innerText
+        container.innerText = ""
+  
+        let hidden_container = document.createElement("span")
+        hidden_container.innerText = content
+
+        hidden_container.style.opacity = 0
+        hidden_container.style.visibility = "hidden"
+        hidden_container.style.fontFamily = font
+        hidden_container.style.fontSize = "1px"
+        hidden_container.style.padding = "0px"
+  
+        container.append(hidden_container)
+  
+        let width_diff = 1
+  
+        while(width_diff > 0){
+          hidden_container.style.fontSize = (parseInt(hidden_container.style.fontSize) + 1) + "px"
+          width_diff = (hidden_container.parentElement.getBoundingClientRect()).right - (hidden_container.getBoundingClientRect()).right
+        }
+
+        container.style.fontSize = (parseInt(hidden_container.style.fontSize) - 1) + "px"
+        hidden_container.remove()
+        container.innerText = content
+    }
+
+    function ft_fit_text(selector, font){
+      let containers = Array.from(document.querySelectorAll(selector))
+      for(let container of containers){
+        container.style.fontFamily = font
+        container.style.textAlign = "center"
+        ft_fit(container, font)
+      }
+
+      window.addEventListener("resize", function(){
+        for(let container of containers){
+          ft_fit(container, font)
+        }
+      })
+    }
+  </script>
+</head>
+<body>
+
+  <div class="ploorp">ploorp</div>
+  <div class="ploorp">ploorp</div>
+  <div class="ploorp">ploorp</div>
+
+  <script type="text/javascript">
+    ft_fit_text(".ploorp", "sans-serif")
+  </script>
+
+</body>
+</html>

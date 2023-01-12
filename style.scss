@@ -1,6 +1,7 @@
 body > a {
   display: inline-block;
   margin: 12px;
+  font-weight: bold;
 }
 picture {
   display: block;
@@ -12,4 +13,7 @@ picture {
 }
 li {
   padding: 1px;
+}
+strong {
+    font-size: 16px;
 }

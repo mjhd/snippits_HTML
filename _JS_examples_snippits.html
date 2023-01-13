@@ -94,6 +94,26 @@
     window.setTimeout(function(){ myDisplayer("RESET") }, '10000');
     document.getElementById("leave").addEventListener("click", mySecond)
 
+    
+    //--------------------------------------------------------------------
+
+    
+    var indexes = [0,1,2.01,3,4,"poo",6,[7,[8,9],10100]]
+
+    function arr_flatten_tostring(arr){
+        var return_str = ""
+        var arr_count = arr.length
+        while(arr_count--){
+          var entry = arr[arr_count]
+          if(Array.isArray(entry))
+            entry = arr_flatten_tostring(entry)
+          return_str += (entry + ((arr_count) ? ', ' : ''))
+        }
+    
+        return return_str;
+    }
+    document.body.innerHTML += arr_flatten_tostring(indexes)
+
   </script>
   <!--<script src="script.js"></script>-->
 

@@ -173,6 +173,18 @@ form#mega_form {
           position: absolute;
           right: 10px;
         }
+        select[name="select"]{
+          font-size: 12pt;
+          padding: 1px;
+        }
+        select[name="select"] option:checked {
+          background-color: #a500e0;
+          color: #fff;
+        }
+        select[name="select"]:focus{
+          padding: 5px;
+          margin: -4px;
+        }
         #color:after {
           top: 24px;
           right: 68px;

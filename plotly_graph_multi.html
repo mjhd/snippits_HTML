@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div id="myDiv">
+  <script type="text/javascript">
+    var data = [
+      {
+        x: ['A', 'B', 'C', 'D', 'E'],
+        y: [4, 9, 16, 17, 15 ],
+        type: 'scatter',
+        line: {shape: 'spline', color: '#ffdede'},
+        fill: 'tozeroy',
+        name: 'historical'
+      },
+      {
+        x: ['A', 'B', 'C', 'D', 'E'],
+        y: [3, 7, 14, 18, 16],
+        type: 'scatter',
+        name: 'current'
+      }
+    ];
+    Plotly.newPlot('myDiv', data, {}, {showSendToCloud: true});
+  </script>
+</body>
+</html>

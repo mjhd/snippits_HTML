@@ -32,13 +32,15 @@
     }
     #clicker + div > div {
       position: absolute;
-      right: -8px;
-      top: calc(100% - 6px);
       padding: 5px;
       border: solid 1px #555;
       background: #fff;
     }
-    #clicker + div > div:after {
+    #clicker + div > div:nth-of-type(1) {
+      right: -8px;
+      top: calc(100% - 6px);
+    }
+    #clicker + div > div:nth-of-type(1):after {
       content: "Click and Hold";
       position: absolute;
       top: 100%;
@@ -71,6 +73,22 @@
       width: 200px;
       font-size: 13px;
     }
+
+    #clickerer {
+      left: 125%;
+      top: 0;
+    }
+    #test {
+      position: relative;
+      width: 200px;
+      height: 70px;
+      border: solid 2px red;
+    }
+    #click {
+      width: 200px;
+      height: 70px;
+      border: solid 2px blue;
+    }
   </style>
 </head>
 <body>
@@ -83,6 +101,11 @@
     <button id="auto_click">Auto Click</button>
     <input id="click_speed" type="range" min="10" max="100" step="10"/>
     <div><button id="stupid_click">Stupid Click</button></div>
+
+    <div id="clickerer">
+      <div id="test"></div>
+      <div id="click"></div>
+    </div>
   </div>
 
   <script type="text/javascript">
@@ -171,6 +194,22 @@
     document.getElementById("stupid_click").addEventListener("mouseup", function(event){
       event.target.classList.remove("active")
       window.clearInterval(document.app.hold_timer)
+    })
+
+
+
+    
+    //----------------------------------------------------------------
+
+
+    //clickerer:
+    var clicks = 0
+    document.getElementById("test").addEventListener("click", function(event){
+      clicks = 0
+      event.target.style.border = "none"
+    })
+    document.getElementById("click").addEventListener("click", function(){
+      document.getElementById("test").style.border = "solid red " + (++clicks + 2) + "px"
     })
 
   </script>

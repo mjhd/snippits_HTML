@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    #panel {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 365px;
+      height: 100%;
+    }
+    #taylor {
+      position: absolute;
+      left: calc(50% - 95px);
+      bottom: -120px;
+      width: 95px;
+      height: 120px;
+    }
+    #message {
+      position: fixed;
+      bottom: 100px;
+      left: 85px;
+    }
+  </style>
+</head>
+<body>
+  <div id="message"><h3>Hey Jacque 👍</h3><h1 id="red" style="color: red;"></h1></div>
+  <div id="panel">
+    <img src="https://thumbs.gfycat.com/PortlyAcidicDeer-size_restricted.gif" id="taylor" alt="">
+  </div>
+
+  <script type="text/javascript">
+    var red_message = document.getElementById("red")
+    document.getElementById("taylor").src = "https://thumbs.gfycat.com/PortlyAcidicDeer-size_restricted.gif"
+    function tay(){
+      red_message.innerHTML = ""
+      TweenMax.to("#taylor", 0.1, {y: -120, oncomplete: function(){
+        window.setTimeout(function(){ red_message.innerHTML = "BOOM!" }, 1000)
+        window.setTimeout(function(){
+          TweenMax.to("#taylor", 0.6, {y: 120, oncomplete: window.setTimeout(function(){ tay() }, 750) })
+        }, 2000)
+     	}})
+    }
+    tay()
+  </script>
+</body>
+</html>

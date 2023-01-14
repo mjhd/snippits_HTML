@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    svg { background: transparent !important; }
+
+    .ui_meter {
+        width: 420px;
+        margin: auto;
+        outline: solid 1px #fff;
+        border: solid 1px #cecece;
+        background: #efefef;
+        border-radius: 5px;
+    }
+    .ui_label {
+      padding-left: 5%;
+    }
+    .ui_total {
+      text-align: right;
+      padding-right: 5%;
+    }
+  </style>
+</head>
+<body>
+    <section id="disk_capacity" class="ui_meter">
+      <h3 class="ui_label">Disk capacity</h3>
+      <div id="disk_capacity_meter" class="ui_bar"></div>
+      <div class="ui_total">
+        <!--<?php echo $disk_cap_used . " / " . $disk_cap_total ?>-->
+        34.21 GB / 1.96 TB
+      </div>
+    </section>
+    <div onclick="fire()">click!</div>
+  <script type="text/javascript">
+    var percent = 2
+
+    var trace2 = {
+      type: 'bar',
+      orientation: 'h',
+      y: ["1"],
+      x: [percent]//, MAYBE:: <?php echo $disk_cap; ?>
+      //width: 50
+    }
+    var trace3 = {
+      type: 'bar',
+      orientation: 'h',
+      y: ["1"],
+      x: [(100 - percent)]//,
+      //width: 50
+    }
+    var layout_2 = {
+    	autosize: true,
+      barmode: "stack",
+      height: 200,
+      showlegend: false,
+      yaxis: {
+    		showgrid: false,
+        zeroline: false,
+        showticklabels: false
+      	},
+      xaxis: {
+      	showgrid: false,
+        zeroline: false,
+        showticklabels: false
+      	}
+      }
+    var options = { staticPlot: true }
+    
+    Plotly.plot('disk_capacity_meter', [ trace2, trace3 ], layout_2, options)
+    
+    
+    
+    
+    
+    function fire(){
+    	percent += (percent < 99) ? 2 : (percent == 99) ? 1 : 0
+    	trace2.x[0] = percent
+      trace3.x[0] = (100 - percent)
+      Plotly.newPlot('disk_capacity_meter', [ trace2, trace3 ], layout_2, {})
+    }
+    window.addEventListener("resize", function(){ Plotly.newPlot('disk_capacity_meter', [ trace2, trace3 ], layout_2, options) })
+  </script>
+</body>
+</html>

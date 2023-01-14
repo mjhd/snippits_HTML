@@ -1,31 +1,41 @@
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script>
-<style>
-  #main h2 { position: absolute; top: 60px; left: 20px; }
-  #output { height: 100%; }
-  #output div {display: inline-block; width: 14%; margin: 1%; background: purple; }
-  #run { position: absolute; top: 15px; left: 15px; width: 50px; height: 50px; outline: solid 1px red; }
-</style>
-
-<section id="main">
-  <h2>C skills by week</h2>
-  <div id="output"></div>
-</section>
-
-<script type="text/javascript">
-  var chart;
-
-  window.onload = function(){
-  document.getElementById('main').style.height = ((document.documentElement.clientHeight) + "px")
-  window.alert
-  chart = d3.select('#output')
-    .selectAll("svg")
-    .data([4, 8, 15, 16, 23, 42])
-    .enter()
-    .append("div")
-    .style("height", (d)=> (d * 2.2) + "%")
-  }
-
-
-  window.addEventListener("resize", (function(){ document.getElementById('main').style.height = ((document.documentElement.clientHeight) + "px") }), false)
-
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script>
+  <style>
+    #main h2 { position: absolute; top: 60px; left: 20px; }
+    #output { height: 100%; }
+    #output div {display: inline-block; width: 14%; margin: 1%; background: purple; }
+    #run { position: absolute; top: 15px; left: 15px; width: 50px; height: 50px; outline: solid 1px red; }
+  </style>
+</head>
+<body>
+  
+  <section id="main">
+    <h2>C skills by week</h2>
+    <div id="output"></div>
+  </section>
+  
+  <script type="text/javascript">
+    var chart;
+  
+    window.onload = function(){
+    document.getElementById('main').style.height = ((document.documentElement.clientHeight) + "px")
+    window.alert
+    chart = d3.select('#output')
+      .selectAll("svg")
+      .data([4, 8, 15, 16, 23, 42])
+      .enter()
+      .append("div")
+      .style("height", (d)=> (d * 2.2) + "%")
+    }
+  
+  
+    window.addEventListener("resize", (function(){ document.getElementById('main').style.height = ((document.documentElement.clientHeight) + "px") }), false)
+  
+  </script>
+</body>
+</html>

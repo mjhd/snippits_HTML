@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+  <style>   
+    html, body, .swiper-container, .swiper-wrapper, .swiper-wrapper div {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    h2 {
+      position: relative;
+      top: 50%;
+      transform: perspective(1px) translateY(-50%);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .swiper-slide {
+      background: rgb(236,158,82);
+    }
+    .swiper-slide:nth-child(2n) {
+      background: rgb(47,117,255);
+    }
+    .swiper-slide:nth-child(3n) {
+      background: rgb(0,255,113);
+    }
+    .swiper-slide:nth-child(4n) {
+      background: rgb(219,93,224);
+    }
+    .swiper-slide:nth-child(5n) {
+      background: rgb(244,235,73);
+    }
+  </style>
+</head>
+<body>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><h2>Slide 1</h2></div>
+      <div class="swiper-slide"><h2>Slide 2</h2></div>
+      <div class="swiper-slide"><h2>Slide 3</h2></div>
+      <div class="swiper-slide"><h2>Slide 4</h2></div>
+      <div class="swiper-slide"><h2>Slide 5</h2></div>
+      <div class="swiper-slide"><h2>Slide 6</h2></div>
+      <div class="swiper-slide"><h2>Slide 7</h2></div>
+      <div class="swiper-slide"><h2>Slide 8</h2></div>
+      <div class="swiper-slide"><h2>Slide 9</h2></div>
+      <div class="swiper-slide"><h2>Slide 10</h2></div>
+    </div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+  <script type="text/javascript">
+    window.onload = function(){
+      var swiper = new Swiper('.swiper-container', {
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+      	},
+    	})
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    body > header, main, body > aside, body > footer { outline: solid 1px orange; }
+
+    section, body > header > div, main > div, body > footer > div, body > aside > div { outline: solid 1px blue; }
+
+    body > * > p, body > * > ul, main > * > span, aside, section { outline: solid 1px green; }
+
+    header, footer, div { outline: solid 1px magenta; }
+
+    p, ul { outline: solid 1px grey; }
+
+    span, li { outline: solid 1px black; }
+
+    main#view {
+      position: absolute;
+      top: 0px;
+      right: 4px;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: calc(100% - 178px);
+      background: #F6F8FA;
+    }
+    aside#sidebar {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 170px;
+    }
+    #menu {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 4px;
+      width: 100%;
+    }
+    #notation {
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <main id="view">
+    <header id="header">
+      <nav id="menu">
+        <ul>
+          <li id="menu_home">Home</li>
+          <li id="menu_search">search</li>
+          <li id="menu_alerts">search</li>
+          <li id="menu_user">User</li>
+        </ul>
+      </nav>
+    </header>
+    <section id="interface">
+        
+    </section>
+    <footer></footer>
+  
+  </main>
+  
+  <aside id="sidebar">
+    <nav id="nav">
+      <ul>
+        <li id="patient_forms">Patient Forms</li>
+        <li id="messages_inbox">Messages Inbox</li>
+        <li id="rank_tracker">Rank Tracker</li>
+        <li id="call_tracking">Call Tracking</li>
+        <li id="citation_tracker">Citation Tracker</li>
+        <li id="analytics">Analytics</li>
+        <li id="settings">Settings</li>
+      </ul>
+    </nav>
+  </aside>
+  <footer id="notation"></footer>
+  <script type="text/javascript">
+  
+  </script>
+</body>
+</html>

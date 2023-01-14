@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+  <div onclick="fire()">click!</div>
+  <script type="text/javascript">
+    var eyes = ['Brown', 'Brown', 'Brown', 'Brown', 'Brown', 'Blue', 'Blue', 'Blue']
+    var hair = ['Black', 'Black', 'Black', 'Brown', 'Brown', 'Brown', 'Red', 'Brown']
+    var sex = ['Female', 'Female', 'Female', 'Male', 'Female', 'Male', 'Male', 'Male']
+    
+    var trace1 = {
+      type: 'parcats',
+      dimensions: [
+        {label: 'Hair',
+         values: hair},
+        {label: 'Eye',
+         values: eyes},
+        {label: 'Sex',
+         values: sex}]
+    }
+
+    var layout = {
+    	autosize:"true"
+      }
+      
+    Plotly.newPlot('myDiv', [ trace1 ], layout, {})
+    
+    var global_count = 0
+    function fire(){
+      eyes.push((global_count++ % 2) ? "Brown" : "Blue")
+      hair.push((global_count % 3) ? "Brown" : "Purple")
+      sex.push("Xir")
+      Plotly.newPlot('myDiv', [ trace1 ], layout, {})
+    }
+    
+    window.addEventListener("resize", function(){ Plotly.newPlot('myDiv', [ trace1 ], layout, {}) })
+  </script>
+</body>
+</html>

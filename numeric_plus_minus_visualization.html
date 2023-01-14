@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    #mainer, #heading {
+      background: #333;
+      padding: 10px;
+      margin-bottom: -17px;
+    }
+    li {
+      padding: 5px;
+      list-style: none;
+      font-weight: bold;
+      display: inline-block;
+      margin: 5px;
+      text-align: center;
+      color: #fff;
+    }
+    #mainer li {
+      width: 25px;
+      margin: 20px;
+    }
+    #heading li {
+      width: 51px;
+      border-right: solid 1px #fff;
+    }
+    #heading li:last-of-type {
+      border: none;
+    }
+    .same_value {
+      color: yellow;
+      outline: solid 1px yellow;
+    }
+    .higher_value {
+      color: green;
+      outline: solid 1px green; 
+    }
+    .lower_value {
+      color: red;
+      outline: solid 1px red;
+    }
+    .same_value:after {
+      content: " ~";
+    }
+    .higher_value:after {
+      content: " +";
+    }
+    .lower_value:after {
+      content: " -";
+    }
+  </style>
+</head>
+<body>
+  <ul id="heading">
+    <li><strong>Nov</strong></li>
+    <li><strong>Dec</strong></li>
+    <li><strong>Jan</strong></li>
+    <li><strong>Feb</strong></li>
+    <li><strong>Mar</strong></li>
+    <li><strong>Apr</strong></li>
+    <li><strong>May</strong></li>
+    <li><strong>Jun</strong></li>
+    <li><strong>Jul</strong></li>
+  </ul>
+  
+  <ul id="mainer" ></ul>
+  <script type="text/javascript">
+    var values = new Array();
+    for(var i = 0; i <= 8; i++){
+    	values.push(Math.floor(Math.random() * 10))
+    }
+    
+    
+    values.forEach(function (value, i) {
+    	var e = document.createElement('li')
+      
+      var class_new = "same_value"
+      if(i && values[i - 1] > value)
+      	class_new = "lower_value"
+      else if(i && values[i - 1] < value)
+      	class_new = "higher_value"
+        
+        
+      e.classList.add(class_new)
+      e.innerHTML = value
+      document.getElementById("mainer").appendChild(e)
+    })
+  </script>
+</body>
+</html>

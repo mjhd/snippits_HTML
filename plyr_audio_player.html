@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.5.2/plyr.min.js"></script>
   <style>
     /* Font Family
     ================================================== */
@@ -177,18 +178,19 @@
   });
   
   let playing = false
-  let audio = $('.audio1').on('play', function () {
-          playing = true
-      }).on('pause', function () {
-          playing = false
-      }).get(0),
-      loadTrack = function () {
-          audio.src = "http://www.archive.org/download/emma_solo_librivox/emma_01_01_austen.mp3"
-      },
-      playTrack = function () {
-          loadTrack()
-          audio.play()
-      };
+  let audio = document.getElementsByClassName("audio1")[0]
+  audio.addEventListener('play', function () {
+      playing = true
+  }).on('pause', function () {
+      playing = false
+  }).get(0),
+  loadTrack = function () {
+      audio.src = "http://www.archive.org/download/emma_solo_librivox/emma_01_01_austen.mp3"
+  },
+  playTrack = function () {
+      loadTrack()
+      audio.play()
+  };
   loadTrack()
   </script>
 </body>

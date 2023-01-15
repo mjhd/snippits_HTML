@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    .grid {
+      min-height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    .grid > div {
+      display: flex; 
+      flex-basis: calc(33.33% - 14px);  
+      justify-content: center;
+      flex-direction: column;
+    }
+    .grid > div:last-child {
+      display: flex; 
+      margin-top: 0px;
+      flex-basis: calc(100% - 22px);  
+      justify-content: center;
+      flex-direction: column;
+    }
+    .grid > div > div {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+    }
+
+    .box { margin: 10px 0 10px 10px}
+    .box1 { background-color: red; }
+    .box2 { background-color: orange; }
+    .box3 { background-color: purple; }
+    .box4 { background-color: grey; }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="box box1"><div>one</div></div>
+    <div class="box box2"><div>two</div></div>
+    <div class="box box3"><div>three</div></div>
+    <div class="box box4"><div>four</div></div>
+  </div>
+  <script type="text/javascript">
+  
+  </script>
+</body>
+</html>

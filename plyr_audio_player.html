@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    /* Font Family
+    ================================================== */
+    
+    @import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700');
+    
+    /* Global Styles
+    ================================================== */
+    
+    body { background: #06f; }
+    
+    *,::before,::after {
+    box-sizing:border-box;
+    }
+    
+    * {
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+    }
+    
+    /* Typography / Links
+    ================================================== */
+    
+    p { color:#fff; display:block; font-size:.9rem; font-weight:400; margin:0 0 2px; }
+    
+    a,a:visited { color:#8cc3e6; outline:0; text-decoration:underline; }
+    a:hover,a:focus { color:#bbdef5; }
+    p a,p a:visited { line-height:inherit; }
+    
+    /* Misc.
+    ================================================== */
+    
+    .left { float:left; }
+    .right { float:right; }
+    .center { text-align:center; }
+    .hidden { display:none; }
+    
+    .no-support {
+    margin:2rem auto;
+    text-align:center;
+    width:90%;
+    }
+    
+    /* Audio Player Styles
+    ================================================== */
+    
+    audio {
+    display:none;
+    }
+    
+    .audiowrap,
+    .plwrap {
+    margin:0 auto;
+    }
+    
+    /* Plyr Overrides
+    ================================================== */
+    
+    .plyr--audio .plyr__controls {
+    background-color:transparent;
+    border:none;
+    color:#fff;
+    padding:20px 20px 20px 13px;
+    width:100%;
+    }
+    
+    .plyr--audio .plyr__controls button.tab-focus:focus,
+    .plyr--audio .plyr__controls button:hover,
+    .plyr__play-large {
+    background:rgba(0,0,0,.1);
+    }
+    
+    .plyr__progress--played,
+    .plyr__volume--display {
+    color:rgba(0,0,0,.1);
+    }
+    
+    .plyr--audio .plyr__progress--buffer,
+    .plyr--audio .plyr__volume--display {
+    background:rgba(0,0,0,.1);
+    }
+    
+    .plyr--audio .plyr__progress--buffer {
+    color:rgba(0,0,0,.1);
+    }
+    
+    .audio0 > .plyr {
+        
+    }
+    
+    /* Media Queries
+    ================================================== */
+    
+    @media only screen and (max-width:600px) {
+      
+        
+    }
+    
+    .mainwrap {
+    	width: 455px;
+        position: relative;
+    	margin: 0;
+    }
+    .audio0 .plyr .plyr__controls {
+        display: block;
+    }
+    
+    .audio0 .plyr .plyr__controls > * {
+    	position: absolute;
+    }
+    .audio0 [data-plyr="restart"] {
+    	top: 20px;
+        left: 420px;
+    }
+    .audio0 [data-plyr="play"] {
+    	top: 20px;
+        left: 0px;
+    }
+    .audio0 .plyr__progress {
+    	top: 25px;
+        left: 50px;
+        width: 321px;
+    }
+    .audio0 .plyr__time--current {
+    	top: 60px;
+        left: 52px;
+        margin: 0;
+    }
+    .audio0 .plyr__time--duration {
+    	top: 60px;
+        left: 97px;
+        margin: 0;
+    }
+    .plyr__dl {
+        position: absolute;
+    	top: 60px;
+        left: 210px;
+    }
+    .audio0 .plyr__volume {
+        top: 55px;
+        left: 295px;
+        min-width: 150px;
+        margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="mainwrap">
+    <div class="audiowrap">
+      <div class="audio0">
+          <audio class="audio1" preload controls>Your browser does not support HTML5 Audio! 😢</audio>
+          <a class="plyr__dl" href="http://www.archive.org/download/emma_solo_librivox/emma_01_01_austen.mp3" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="#fff" d="M15 10h4l-7 8-7-8h4v-10h6v10zm3.213-8.246l-1.213 1.599c2.984 1.732 5 4.955 5 8.647 0 5.514-4.486 10-10 10s-10-4.486-10-10c0-3.692 2.016-6.915 5-8.647l-1.213-1.599c-3.465 2.103-5.787 5.897-5.787 10.246 0 6.627 5.373 12 12 12s12-5.373 12-12c0-4.349-2.322-8.143-5.787-10.246z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+  </div>
+  <script type="text/javascript">
+    var player = new Plyr('.audio1', {
+  	controls: [
+  	    'restart',
+  	    'play',
+  	    'progress',
+  	    'current-time',
+  	    'duration',
+  	    'mute',
+  	    'volume'
+  	]
+  });
+  
+  let playing = false
+  let audio = $('.audio1').on('play', function () {
+          playing = true
+      }).on('pause', function () {
+          playing = false
+      }).get(0),
+      loadTrack = function () {
+          audio.src = "http://www.archive.org/download/emma_solo_librivox/emma_01_01_austen.mp3"
+      },
+      playTrack = function () {
+          loadTrack()
+          audio.play()
+      };
+  loadTrack()
+  </script>
+</body>
+</html>

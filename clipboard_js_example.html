@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+</head>
+<body>
+
+  <!-- Target -->
+<input id="foo" value="floorp">
+
+<!-- Trigger -->
+<button id="btn" class="btn" data-clipboard-target="#foo">
+    <img src="assets/clippy.svg" alt="Copy to clipboard">
+</button>
+
+  <script type="text/javascript">
+    var clipboard_buffer = document.getElementById('btn')
+    var elem = document.getElementById('btn')
+    //new ClipboardJS('.btn')
+    new ClipboardJS(elem, {
+      text: function() {
+        return 'nofloorpso';
+      }
+    })
+  </script>
+</body>
+</html>

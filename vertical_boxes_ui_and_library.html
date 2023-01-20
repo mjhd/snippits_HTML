@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+  * {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  li {
+    display: inline-block;
+    float: left;
+    clear: left;
+    padding: 8px;
+    outline: solid 2px;
+    margin: 2px;
+  }
+  .active {
+    color: red;
+    outline-color: red;
+  }
+  .active * {
+    color: initial;
+    outline-color: initial;
+  }
+  li > ul .active {
+    color: blue;
+    outline-color: blue;
+  }
+  </style>
+</head>
+
+<body>
+  <ul id="MainTab" class="main_tab_wrapper">
+    <li>A</li>
+    <li>B</li>
+    <li class="active">C</li>
+    <li>D</li>
+    <li>E
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li class="active">3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8
+          <ul>
+            <li>8.A</li>
+            <li>8.B</li>
+            <li class="active">8.C</li>
+            <li>8.D</li>
+            <li>8.E</li>
+            <li>8.F</li>
+            <li>8.G</li>
+          </ul>
+        </li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+      </ul>
+    </li>
+    <li>F</li>
+    <li>G</li>
+  </ul>
+  <script type="text/javascript">
+    document.ui_application = {}
+    document.ui_application.ui_instances = []
+    document.ui_application.UI = function(){
+      let ui_instance = {}
+      ui_instance.base = document.ui_application.ui_instances.length + 1
+      return ui_instance
+    }
+    document.ui_application.ui_builder = function(parent){
+      let elems = parent.children
+      let build_data = []
+      for(let elem of elems){
+        build_data.push(elem)
+        for (let match of Array.from(elem.children)){
+          if(match.tagName === "UL")
+            console.log(document.ui_application.ui_builder(match))
+        }
+      }
+      return build_data
+    }
+    document.ui_application.createUI = function(interface, build_data){
+      let ui_instance = document.ui_application.UI()
+      console.log(ui_instance)
+      console.log(document.ui_application.ui_builder(interface))
+    }
+
+    let my_interface = document.getElementById("MainTab")
+    let interface_data = document.ui_application.createUI(my_interface)
+
+    //console.log(my_interface)
+  </script>
+</body>
+
+</html>

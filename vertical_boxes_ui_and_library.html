@@ -34,7 +34,7 @@
 </head>
 
 <body>
-  <ul id="MainTab" class="main_tab_wrapper">
+<ul id="MainTab" class="main_tab_wrapper">
     <li>A</li>
     <li>B</li>
     <li class="active">C</li>
@@ -68,36 +68,93 @@
     <li>F</li>
     <li>G</li>
   </ul>
+<!--<ul id="MainTab" class="main_tab_wrapper">
+    <li>1.1</li>
+    <li>1.2</li>
+    <li class="active">1.3</li>
+    <li>1.4</li>
+    <li>1.5
+        <ul>
+            <li>1.5.1</li>
+            <li>1.5.2</li>
+            <li class="active">1.5.3</li>
+            <li>1.5.4</li>
+            <li>1.5.5</li>
+            <li>1.5.6</li>
+            <li>1.5.7</li>
+            <li>1.5.8
+                <ul>
+                    <li>1.5.8.1</li>
+                    <li>1.5.8.2</li>
+                    <li class="active">1.5.8.3</li>
+                    <li>1.5.8.4</li>
+                    <li>1.5.8.5</li>
+                    <li>1.5.8.6</li>
+                    <li>1.5.8.7</li>
+                </ul>
+            </li>
+            <li>1.5.9</li>
+            <li>1.5.10</li>
+            <li>1.5.11</li>
+            <li>1.5.12</li>
+        </ul>
+    </li>
+    <li>1.6</li>
+    <li>1.7</li>
+</ul>-->
   <script type="text/javascript">
     document.ui_application = {}
     document.ui_application.ui_instances = []
-    document.ui_application.UI = function(){
+
+    document.ui_application.UI = function(interface){
       let ui_instance = {}
-      ui_instance.base = document.ui_application.ui_instances.length + 1
+      ui_instance.base = (document.ui_application.ui_instances.length + 1).toString()
+      interface.classList.add("ui_" + ((ui_instance.base.length === 1) ? '0' : '') + ui_instance.base)
       return ui_instance
     }
-    document.ui_application.ui_builder = function(parent){
+
+    document.ui_application.ui_builder = function(parent, ui){
       let elems = parent.children
-      let build_data = []
+      let build_data = {}
+      ui.base = ui.base + ".1"
       for(let elem of elems){
-        build_data.push(elem)
+        build_data[ui.base] = elem
+        elem.dataset.ui_index = ui.base
+        elem.onclick = function(event){
+            event.stopPropagation()
+            console.log(event.target)
+            console.log(event.target.innerText)
+            console.log(event.target.dataset.ui_index)
+            console.log("---------------------")
+            let bloop = [ [1] , [[1],[1],[[0],[1]]] ]
+            console.log(bloop[1][2][0])
+            console.log(("1.2.0").split('.'))
+        }
+        //console.log(elem.innerText)
+        //console.log(ui.base)
+        ui.base = ui.base.substring(0, ui.base.length - 1) + (parseInt(ui.base[ui.base.length - 1]) + 1)
         for (let match of Array.from(elem.children)){
-          if(match.tagName === "UL")
-            console.log(document.ui_application.ui_builder(match))
+          if(match.tagName === "UL"){
+              ui.base = ui.base.substring(0, ui.base.length - 1) + (parseInt(ui.base[ui.base.length - 1]) - 1)
+              //build_data[ui.base] = document.ui_application.ui_builder(match, ui)
+              build_data = {...build_data, ...document.ui_application.ui_builder(match, ui)}
+          }
         }
       }
+      ui.base = ui.base.replace(/\.[^.]*$/, '')
+      ui.base = ui.base.substring(0, ui.base.length - 1) + (parseInt(ui.base[ui.base.length - 1]) + 1)
       return build_data
     }
-    document.ui_application.createUI = function(interface, build_data){
-      let ui_instance = document.ui_application.UI()
+
+    document.ui_application.createUI = function(interface, elem_data){
+      let ui_instance = document.ui_application.UI(interface)
+      ui_instance.elems = document.ui_application.ui_builder(interface, ui_instance)
       console.log(ui_instance)
-      console.log(document.ui_application.ui_builder(interface))
     }
 
     let my_interface = document.getElementById("MainTab")
     let interface_data = document.ui_application.createUI(my_interface)
 
-    //console.log(my_interface)
   </script>
 </body>
 
